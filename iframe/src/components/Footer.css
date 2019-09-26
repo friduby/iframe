@@ -1,0 +1,22 @@
+.footer-container{
+    direction: rtl;
+    color: white;
+    padding-top:3px;
+    padding-bottom:8px;
+    padding-right: 10px;
+    font-size: 15px;
+    background-color: rgb(31, 19, 52);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    vertical-align: middle;
+    position: relative;
+    bottom: -242px;
+    left: 0px;
+}
+.footer-container p{
+    margin-bottom: 0px !important; 
+}
+.footer-container img{
+    margin-right: 5px;
+    margin-left: 5px;
+}

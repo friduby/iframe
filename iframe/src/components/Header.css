@@ -1,0 +1,14 @@
+.iframe-header{
+    /* border-bottom: 1px solid black; */
+    padding-top: 3px;
+    padding-bottom: 0px;
+}
+
+.iframe-progress-bar{
+    /* border: 1px solid black; */
+}
+
+.iframe-logo{
+    padding-top: 10px;
+    padding-left: 55px !important;
+}
