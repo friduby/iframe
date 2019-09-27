@@ -1,7 +1,7 @@
 import React from 'react';
-import './Content.css'
+import './StepForm.css'
 
-class Content extends React.Component {
+class StepForm extends React.Component {
     render() {
         return (
             <div className="content-container">
@@ -15,4 +15,4 @@ class Content extends React.Component {
     }
 }
 
-export default Content
+export default StepForm

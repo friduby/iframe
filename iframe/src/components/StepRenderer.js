@@ -1,6 +1,6 @@
 import React from 'react';
 import InfoPanel from './InfoPanel.js';
-import Content from './Content.js';
+import StepForm from './StepForm.js';
 import './StepRenderer.css'
 
 class StepRenderer extends React.Component {
@@ -11,7 +11,7 @@ class StepRenderer extends React.Component {
                     <InfoPanel />
                 </div>
                 <div className="steprenderer-content uk-width-3-4@m uk-width-1-1@s">
-                    <Content />
+                    <StepForm />
                 </div>
             </div>
         );

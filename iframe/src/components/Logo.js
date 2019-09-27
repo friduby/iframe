@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../assets/logo.png';
 
-class ProgressBar extends React.Component {
+class Logo extends React.Component {
 	render() {
 		return (
 			<img src={logo} alt="logo" width="190" />
@@ -10,4 +10,4 @@ class ProgressBar extends React.Component {
 }
 
 
-export default ProgressBar;
+export default Logo;
