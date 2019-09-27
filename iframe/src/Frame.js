@@ -1,13 +1,12 @@
 import React from 'react';
 import './Frame.css';
-import {Header, LeftSideBar, MainContent, Footer} from './components'
+import {Header, MainContent, Footer} from './components'
 
 class Frame extends React.Component {
 	render() {
 		return (
-			<div className="">
+			<div className="container">
 				<Header />
-				<LeftSideBar />
 				<MainContent />
 				<Footer />
 			</div>
