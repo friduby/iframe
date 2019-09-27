@@ -1,0 +1,16 @@
+.content-container{
+}
+
+.content-container p{
+    text-align: center;
+    margin: 0px auto;
+    color: green;
+    font-size: 25px;
+}
+
+.iframe-rules{
+    border: 1px solid #ccc;
+    width: 80%;
+    margin: 10px auto;
+    height: 220px;
+}

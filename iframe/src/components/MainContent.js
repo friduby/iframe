@@ -1,13 +1,14 @@
 import React from 'react';
+import './MainContent.css'
 import SMSVerification from './SMSVerification';
+import StepRenderer from './StepRenderer';
 
 class MainContent extends React.Component {
     render() {
         return (
-            <div style={{margin: "40px", border: "2px solid black", height:"62%"}}>
-                <h2>MainContent</h2>
-                <SMSVerification />
-                {/* <StepRenderer /> */}
+            <div className="iframe-main-content" style={{}}>
+                {/* <SMSVerification /> */}
+                <StepRenderer />
             </div>
         );
     }

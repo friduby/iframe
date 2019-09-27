@@ -9,6 +9,14 @@
 }
 
 .iframe-logo{
+    text-align: center;
     padding-top: 10px;
-    padding-left: 55px !important;
+    padding-left: 0px !important;
+    margin-left: -30px;
+}
+
+@media (max-width: 900px){
+    .iframe-logo{
+        margin-left: 0px;
+    }
 }
