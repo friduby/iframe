@@ -1,3 +1,12 @@
 .iframe-main-content {
     margin: 20px;
 }
+
+.iframe-loader{
+    width: 50%;
+    min-height: 100px;
+    margin: 0px auto;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid #ddd;
+}

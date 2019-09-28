@@ -1,17 +1,17 @@
 import React from 'react';
 import PhoneNumberInput from './inputs/PhoneNumberInput';
 import BaseInput from './inputs/BaseInput';
-
+import BaseButton from './inputs/BaseButton'
 class Form extends React.Component {
     constructor() {
         super();
-        this.childs = [];
+        this.inputs = [];
     }
     validateAndSubmit(e) {
         e.preventDefault();
         const children = this.props.children;
         let isValid = true;
-        this.childs.forEach(child => {
+        this.inputs.forEach(child => {
             if (!child.isClean())
                 isValid = false;
         });
@@ -21,10 +21,10 @@ class Form extends React.Component {
     }
 
     onRegister(child) {
-        this.childs.push(child);
+        this.inputs.push(child);
     }
     onUnRegister(child) {
-        delete this.childs[this.childs.indexOf(child)];
+        delete this.inputs[this.inputs.indexOf(child)];
     }
     render() {
         const children = React.Children.map(this.props.children, (child, index) => {
@@ -39,7 +39,7 @@ class Form extends React.Component {
         return (
             <form onSubmit={this.validateAndSubmit.bind(this)}>
                 {children}
-                <button type="submit">Submit</button>
+                <BaseButton type="submit" value="submit" />
             </form>
         );
     }

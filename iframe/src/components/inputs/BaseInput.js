@@ -20,7 +20,16 @@ class BaseInput extends React.Component {
     }
     renderError() {
         return (
-            <small style={{color: "red"}}>{this.state.error}</small>
+            <div  style={{display:'inline'}}>
+            { this.state.error ? (
+
+                <div uk-tooltip={this.state.error} style={{display:'inline'}}>
+                <i class="fas fa-exclamation-triangle" style={{fontSize:'17px', marginLeft:'10px', paddingTop:'2px', color:'red'}}></i>
+                </div>
+
+            ) : (<p style={{display:'inline'}}></p>)
+            }
+            </div>
         );
     }
     render() {

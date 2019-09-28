@@ -5,10 +5,11 @@ import PhoneNumberInput from './inputs/PhoneNumberInput';
 class SMSVerification extends React.Component {
     render() {
         return (
-            <div>
+            <div className="uk-card uk-card-defau>
                 <h2>SMSVerification</h2>
                 <Form>
                     <p>This is the sms form</p>
+                    <PhoneNumberInput />
                     <PhoneNumberInput />
                 </Form>
             </div>
