@@ -26,8 +26,11 @@ class Form extends React.Component {
     onUnRegister(child) {
         delete this.inputs[this.inputs.indexOf(child)];
     }
-    render() {
-        const children = React.Children.map(this.props.children, (child, index) => {
+    handleChilds(children) {
+        return React.Children.map(children, (child, index) => {
+            if (child.props.children instanceof Array && child.props.children.length < 3) {
+                return this.handleChilds(child.props.children);
+            }
             if (!(child.type.prototype instanceof BaseInput)) // if its not an input
                 return child;
             return React.cloneElement(child, {
@@ -36,10 +39,13 @@ class Form extends React.Component {
                 onUnRegister: this.onUnRegister.bind(this)
             });
         });
+    }
+    render() {
+        const children = this.handleChilds(this.props.children);
         return (
             <form onSubmit={this.validateAndSubmit.bind(this)}>
                 {children}
-                <BaseButton  type="submit" value={this.props.buttonValue} />
+                <BaseButton  type="submit" value={this.props.buttonText} />
             </form>
         );
     }

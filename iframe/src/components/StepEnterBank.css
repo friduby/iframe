@@ -24,16 +24,20 @@ select
     direction: rtl;
 }
 
-.step-bank-inputs{
-    margin-left: 0px !important;
+.step-bank-inputs {
+	direction: rtl;
 }
 .step-bank-inputs input{
 	padding-bottom: 20px;
 	margin-top: 55px;
-    margin-left: 26px;
+	margin-left: 26px;
+	float: right;
+	
 }
 .step-bank-input{
+    margin-left: 0px !important;
 	padding-bottom: 20px;
 	margin-top: 60px;
-    margin-left: 26px;
+	margin-left: 26px;
+	float: right;
 }
