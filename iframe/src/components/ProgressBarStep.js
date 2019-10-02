@@ -4,6 +4,8 @@ import './ProgressBar.css';
 class ProgressBar extends React.Component {
 	render() {
         let className="step-circle";
+        let circle="";
+        let stepName = "step-name"
         if(this.props.active){
             className += ' active';
         }
@@ -12,15 +14,24 @@ class ProgressBar extends React.Component {
             lineClassName += ' active';
         }
         if(this.props.first){
-            lineClassName += ' small-width'
+            lineClassName += ' small-width';
+        }
+        if(this.props.active){
+            circle = <i className="fa fa-check" style={{position:'relative', top:'5px', left:'6px', color:'white'}}></i>;
+        }
+        else{
+            circle = <div className="step-circle-number"></div>;
+        }
+        if(this.props.small){
+            stepName += " step-name-small";
         }
 		return (
             <div className="iframe-progress-step uk-width-1-5">
 				<span className={lineClassName}></span>
                 <div className={className}>
-                    <span className="step-circle-number">{this.props.stepNumber}</span>
+                    {circle}
                 </div>
-                <div className="step-name">{this.props.stepName}</div>
+                <div className={stepName}>{this.props.stepName}</div>
             </div>
 		);  
 	}

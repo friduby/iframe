@@ -1,19 +1,22 @@
 .iframe-steps-line{
     position: relative;
-    top: 24px;
+    top: 47px;
     width: 190%;
     left: calc(10% + 50px);
     height:8px;
     display: block;
-    background-color: #aaa;
-    /* background: linear-gradient(to bottom, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0.00) 46%,rgba(0,0,0,0) 50%,rgba(0,0,0,0.3) 100%);  */
+    background: #00bc89; /* Old browsers */
+    background: -moz-linear-gradient(left,  #00bc89 0%, #80b559 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #00bc89 0%,#80b559 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #00bc89 0%,#80b559 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00bc89', endColorstr='#80b559',GradientType=1 ); /* IE6-9 */
 }
 .step-container{
-    vertical-align: middle;
-    margin-right: 40px;
+    margin-right: 50px;
     /* border:1px solid #ccc; */
 }
 .iframe-progress{
+    margin-top: 20px;
     margin-right: 40px;
 }
 .iframe-progress-step{
@@ -21,30 +24,40 @@
     /* border:1px solid #ccc; */
 }
 .step-circle{
-    background-color: #aaa;
+    background: #00bc89; /* Old browsers */
+    background: -moz-linear-gradient(left,  #00bc89 0%, #80b559 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #00bc89 0%,#80b559 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #00bc89 0%,#80b559 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00bc89', endColorstr='#80b559',GradientType=1 ); /* IE6-9 */
     position: relative;
-    right: -43px;
-    top: 5px;
+    right: -45px;
+    top: 30px;
     border-radius: 20px;
     width: 30px;
     height: 30px;
 }
 .step-circle-number{
-    display: none;
+    z-index: 100;
     position: relative;
-    top: 1px;
-    right: -11px;
-    color: #333;
+    top: 5px;
+    right: -5px;
+    border-radius: 20px;
+    background-color: white;
+    width: 20px;
+    height: 20px;
 }
 
 .step-name{
     position: relative;
-    top: 10px;
-    right: 0px;
-    left: 42px;
+    top: -30px;
+    width: 200px;
+    left: 25px;
     color: #888;
-    font-size: 12px;
+    font-size: 11px;
     /* border: 1px solid black; */
+}
+.step-name-small{
+    left: 45px !important;
 }
 
 .active{

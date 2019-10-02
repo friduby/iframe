@@ -20,7 +20,11 @@ class PhoneNumberInput extends BaseInput {
     }
     renderInput() {
         return (
-            <input className="uk-input-small" type="text" value={this.state.value} onChange={this.onValueChange.bind(this)}></input>
+            <div style={{display:'block'}}>
+                <label className="uk-width-1-2" style={{paddingLeft:'10px', fontSize:'14px'}}>{this.props.inputLabel}</label>
+                <br />
+                <input className="uk-input-medium uk-margin-small-top uk-width-3-4" style={{height:'30px', display:'inline'}} type="text" value={this.state.value} onChange={this.onValueChange.bind(this)}></input>
+            </div>
         );
     }
 }

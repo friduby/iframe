@@ -39,7 +39,7 @@ class Form extends React.Component {
         return (
             <form onSubmit={this.validateAndSubmit.bind(this)}>
                 {children}
-                <BaseButton type="submit" value="submit" />
+                <BaseButton  type="submit" value={this.props.buttonValue} />
             </form>
         );
     }

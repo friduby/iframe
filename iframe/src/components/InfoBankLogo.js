@@ -1,6 +1,6 @@
 import React from 'react';
 import './InfoPanel.css'
-import logo from '../assets/logo.png'
+import logo from '../assets/shahrpng.png'
 
 class InfoBankLogo extends React.Component {
     render() {

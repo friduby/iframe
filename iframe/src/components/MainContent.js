@@ -4,6 +4,9 @@ import SMSVerification from './SMSVerification';
 import StepRenderer from './StepRenderer';
 import Loader from './Loader';
 import FetchContext from '../utils/FetchContext';
+// import Logo from './Logo';
+import ProgressBar from './ProgressBar';
+
 
 class MainContent extends React.Component {
     state = {
@@ -26,14 +29,24 @@ class MainContent extends React.Component {
     }
     render() {
         return (
-            <div className="iframe-main-content">
-                {/* <Loader loading={this.state.loading} failed={this.state.failed}> */}
-                {!this.state.sms_verify ? (
-                        <SMSVerification />
-                ) : (
-                        <StepRenderer />
-                    )}
-                {/* </Loader> */}
+            <div className="iframe-main-content uk-width-2-3@m uk-width-1-1@s">
+                <div className="uk-width-1-1">
+                    <div className="iframe-progress-bar">
+                        <ProgressBar />
+                    </div>
+                </div>
+                {/* <div className="iframe-logo uk-width-1-3@m uk-width-1-1@s">
+                    <Logo />
+                </div> */}
+                <div className="iframe-main-content">
+                    {/* <Loader loading={this.state.loading} failed={this.state.failed}> */}
+                    {this.state.sms_verify ? (
+                            <SMSVerification />
+                    ) : (
+                            <StepRenderer />
+                        )}
+                    {/* </Loader> */}
+                </div>
             </div>
         );
     }

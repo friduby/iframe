@@ -1,69 +1,61 @@
+.iframe-info-panel{
+    padding-left: 0px !important;
+}
 .info-time-remaining{
-    height: 35px;
-    width: 75%;
+    background-color: #ccc;
+    width: 85%;
     margin: 10px auto 0px auto;
-    background-color: rgb(27, 14, 56);
-    color: white;
-    border-top-right-radius: 8px;
-    border-bottom-left-radius: 8px;
+    color: #666;
+    border: 2px dashed #bbb;
+    border-radius: 10px;
+}
+.iframe-deposit{
+    width: 85%;
+    background-color: #ccc;
+    color: #666;
+    border: 2px dashed #bbb;
+    border-radius: 10px;
 }
 
 .time-remaining{
-    padding-top: 0px !important;
-    margin-left: 0px !important;
+    text-align: center;
+    padding: 20px 20px 20px 20px !important;
+    margin: 0px auto;
 }
 .time-remaining div{
-    padding-top: 4px !important;
-    margin-left: 5px !important;
-    padding-left: 0px !important; 
-}
-.time-remaining svg{
-    padding-left: 10px !important;
-    padding-top: 4px !important;
-}
-.time-remaining p{
-    padding-left: 20px !important;
+    margin: 0px !important;
 }
 
-#time-remaining-time{
-    padding-top: 1px !important;
-    padding-left: 10px !important;
-}
 .info-bank-logo{
-    margin: 15px auto;
-    padding: 10px !important;
-    border-bottom: 1px solid #ccc;
+    margin: 0px auto;
+    padding: 5px !important;
 }
 .info-bank-logo img{
-    margin: 15px auto;
+    margin: 0px auto;
     padding-left: 0px !important;
 }
-
+.time-remaining p{
+    padding-left: 0px !important;
+}
 .info-help{
     margin: 0px auto;
     padding: 10px !important;
 }
 .info-help img{
-    margin: 15px auto;
+    margin: 0px auto;
     padding-left: 0px !important;
 }
 
-@media (min-width: 1400px){
-    .time-remaining div{
-        margin-left: 30px !important;
-    }
-}
 @media (max-width: 960px){
     .info-time-remaining{
-        width: 45%;
+        /* width: 45%; */
     }
-    .time-remaining p{
-        padding-left: 10px !important;
-    }
+    
     .time-remaining div{
         padding-left: 0px !important; 
     }
 }
+
 @media (max-width: 560px){
     .info-time-remaining{
         width: 75%;
