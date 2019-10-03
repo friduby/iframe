@@ -3,6 +3,8 @@ import BaseInput from "./BaseInput";
 
 class PhoneNumberInput extends BaseInput {
     isClean() {
+        if (this.props.disabled)
+            return true;
         if (this.state.value.length < 5) {
             this.setState({ error: "Should be longer" });
             return false;
