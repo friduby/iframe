@@ -14,7 +14,7 @@ class MainContent extends React.Component {
     }
     UNSAFE_componentWillMount() {
         let context = new FetchContext();
-        context.fetch()
+        context.fetch('init_context')
             .then(response => {
                 this.setState({
                     sms_verify: response.data.sms_verify,
@@ -33,13 +33,13 @@ class MainContent extends React.Component {
                     <Logo />
                 </div> */}
                 <div className="iframe-main-content">
-                    {/* <Loader loading={this.state.loading} failed={this.state.failed}> */}
+                    <Loader loading={this.state.loading} failed={this.state.failed}>
                     {this.state.sms_verify ? (
                             <SMSVerification />
                     ) : (
                             <StepRenderer />
                         )}
-                    {/* </Loader> */}
+                    </Loader>
                 </div>
             </div>
         );

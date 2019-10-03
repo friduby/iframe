@@ -6,12 +6,14 @@ class BaseInput extends React.Component {
         error: ""
     }
 
-    // componentDidMount() {
-    //     this.props.onRegister(this);
-    // }
-    // componentWillUnmount() {
-    //     this.props.onUnRegister(this);
-    // }
+    componentDidMount() {
+        // if (this.props.onRegister)
+            this.props.onRegister(this);
+    }
+    componentWillUnmount() {
+        // if (this.props.onUnRegister)
+            this.props.onUnRegister(this);
+    }
     isClean() {
         return false;
     }
@@ -20,15 +22,15 @@ class BaseInput extends React.Component {
     }
     renderError() {
         return (
-            <div  style={{display:'inline'}}>
-            { this.state.error ? (
+            <div style={{ display: 'inline' }}>
+                {this.state.error ? (
 
-                <div uk-tooltip={this.state.error} style={{display:'inline'}}>
-                <i class="fas fa-exclamation-triangle" style={{fontSize:'17px', marginLeft:'10px', paddingTop:'2px', color:'red'}}></i>
-                </div>
+                    <div uk-tooltip={this.state.error} style={{ display: 'inline' }}>
+                        <i class="fas fa-exclamation-triangle" style={{ fontSize: '17px', marginLeft: '10px', paddingTop: '2px', color: 'red' }}></i>
+                    </div>
 
-            ) : (<p style={{display:'inline'}}></p>)
-            }
+                ) : (<p style={{ display: 'inline' }}></p>)
+                }
             </div>
         );
     }

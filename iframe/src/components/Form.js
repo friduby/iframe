@@ -30,8 +30,9 @@ class Form extends React.Component {
     }
     handleChilds(children) {
         return React.Children.map(children, (child, index) => {
-            if (child.props.children instanceof Array && child.props.children.length < 3) {
-                return this.handleChilds(child.props.children);
+            if (child.props.children instanceof Array) {
+                let childs = this.handleChilds(child.props.children);
+                return React.cloneElement(child, child.props, childs);
             }
             if (!(child.type.prototype instanceof BaseInput)) // if its not an input
                 return child;
