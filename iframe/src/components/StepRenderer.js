@@ -17,21 +17,18 @@ class StepRenderer extends React.Component {
                         {/* <RulesInput /> */}
                 <div className="steprenderer-content uk-width-1-1">
                     {/* <Form buttonText="قبول می کنم">
-                        <p style={{ textAlign: 'right', marginTop: '20px' }}>ورود به اینترنت بانک</p>
-                        <div className="step-bank-inputs">
+                        <p style={{ textAlign: 'right'}}>ورود به اینترنت بانک</p>
                             <TextInput name="field1" placeholder="نام کاربری اینترنت بانک"/>
                             <TextInput name="field1" placeholder="رمز عبور اینترنت بانک"/>
                             <TextInput name="field1" placeholder="کد امنیتی" />
-                        </div>
                     </Form> */}
                     <Form buttonText="مرحله بعد">
                     <p style={{ textAlign: 'right', marginTop: '20px', fontSize:'22px' }}>ثبت اطلاعات کارت</p>
-                        <div className="step-bank-inputs uk-grid">
-                            <PassInput type="password" name="cvv2" placeholder="CVV2" />
-                            <PassInput type="password" name="pass2" placeholder="رمز دوم اینترنتی" />
-                        </div>
-                            <NumberInput type="number" placeholder="00" name="expire-date-month" />
-                            <NumberInput maxLength="2" type="number" placeholder="00" name="expire-date-day"/>
+                    <PassInput type="password" name="pass2" placeholder="رمز دوم اینترنتی" />
+                    <PassInput type="password" name="cvv2" placeholder="CVV2" />
+                    <p style={{textAlign:'right'}}>:تاریخ انقضای کارت</p>
+                    <NumberInput type="number" placeholder="00" name="expire-date-month" />
+                    <NumberInput maxLength="2" type="number" placeholder="00" name="expire-date-day"/>
                     </Form>
                 </div>
             </div>

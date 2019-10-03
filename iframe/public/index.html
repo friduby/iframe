@@ -36,7 +36,6 @@
         overflow-x: hidden; 
       }
       #root{
-        overflow-x: hidden;
         margin-left: 0px;
       }
     </style>
@@ -53,6 +52,8 @@
             $("html ").css("width", screen.width);
           }
           $("body").css("height", 1000);
+          let topp = $("uk-tooltip").css("top")
+          $("uk-tooltip").css("top", topp * 1.5);
       });
     </script>
     <title>iframe App</title>

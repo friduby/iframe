@@ -24,14 +24,14 @@ class SMSVerification extends React.Component {
     render() {
         return (
             <Loader loading={this.state.loading} failed={false} >
-                <div className="sms-verification uk-card uk-card-default" style={{ border: '1px solid #ddd' }}>
+                <div className="sms-verification uk-card uk-card-default" style={{ border:'1px solid #ddd', marginTop:'80px', padding:'20px' }}>
                     <Form buttonText="بفرست" onSubmit={this.onSubmit.bind(this)}>
                         <p className="" style={{ margin: '20px auto', borderRadius: '10px', padding: '10px' }}>لطفا شماره خود را وارد نمایید</p>
                         <PhoneNumberInput inputLabel=":شماره موبایل" disabled={this.state.code_sent} defaultVal={this.state.phone} />
 
                         <Zoom>
                             <div></div>
-                            <PhoneNumberInput inputLabel="کد تایید:" hidden={!this.state.code_sent} />
+                            <PhoneNumberInput inputLabel=":کد تایید" hidden={!this.state.code_sent} />
                         </Zoom>
                     </Form>
                 </div>

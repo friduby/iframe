@@ -29,17 +29,14 @@ class MainContent extends React.Component {
     render() {
         return (
             <div className="iframe-main-content uk-width-2-3@m uk-width-1-1@s">
-                {/* <div className="iframe-logo uk-width-1-3@m uk-width-1-1@s">
-                    <Logo />
-                </div> */}
                 <div className="iframe-main-content">
-                    <Loader loading={this.state.loading} failed={this.state.failed}>
+                    {/* <Loader loading={this.state.loading} failed={this.state.failed}> */}
                     {this.state.sms_verify ? (
                             <SMSVerification />
                     ) : (
                             <StepRenderer />
                         )}
-                    </Loader>
+                    {/* </Loader> */}
                 </div>
             </div>
         );
