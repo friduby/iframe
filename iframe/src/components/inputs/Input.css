@@ -2,13 +2,14 @@
   .form-group {
     position: relative;
     width: 100%;
+    margin-top: -10px;
   }
   
   .form-control-placeholder {
     position: relative;
-    top: -70px;
+    top: -50px;
     float: right;
-    padding: 0px 7px 0 0px;
+    padding: 0px 0px 0 0px;
     transition: all 200ms;
     opacity: 0.5;
   }

@@ -26,7 +26,7 @@ class BaseInput extends React.Component {
             <div style={{ display: 'inline' }}>
                 {this.state.error ? (
                     <div uk-tooltip={this.state.error} style={{display:'inline', position:'relative', top:'-70px', width:'20px', height:'10px' }}>
-                        <i className="fas fa-exclamation-triangle" style={{ fontSize: '17px', marginLeft: '10px', paddingTop: '2px', color: 'red' }}></i>
+                        <i className="fas fa-exclamation-triangle" style={{ fontSize: '17px', marginLeft: '10px', color: 'red' }}></i>
                     </div>
 
                 ) : (<p style={{ display: 'inline' }}></p>)

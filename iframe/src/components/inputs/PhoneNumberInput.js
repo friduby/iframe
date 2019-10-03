@@ -18,6 +18,18 @@ class PhoneNumberInput extends BaseInput {
         else
             this.isClean();
     }
+    renderError() {
+        return(
+            <div style={{ display: 'inline' }}>
+                {this.state.error ? (
+                    <div uk-tooltip={this.state.error} style={{display:'inline', position:'relative', top:'-45px', left:'-35%', width:'20px', height:'10px' }}>
+                        <i className="fas fa-exclamation-triangle" style={{ fontSize: '17px', marginLeft: '10px', color: 'red' }}></i>
+                    </div>
+                ) : (<p style={{ display: 'inline' }}></p>)
+                }
+            </div>
+        );
+    }
     renderInput() {
         return (
             <div style={{display:'block'}}>
