@@ -1,3 +1,56 @@
+input[type="text"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="time"],
+input[type="url"],
+input[type="password"],
+textarea,
+select 
+{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+    border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+    padding-right: 10px !important;
+    direction: rtl;
+    margin-bottom: 20px;
+}
+
+.step-bank-inputs{
+    margin-left: 0px !important;
+}
+.step-bank-inputs input{
+    box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	outline: none;
+	width:45%;
+    border: none;
+	border-bottom: 1px solid #ddd;
+	background: transparent;
+	font: 16px Arial, Helvetica, sans-serif;
+    height: 45px;
+    padding-right: 10px !important;
+    direction: rtl;
+	padding-bottom: 20px;
+	margin-top: 20px;
+	margin-bottom: 55px;
+    margin-left: 26px;
+    float:right;
+    width:100%;
+}
+
+.step-expire-date{
+    width: 15% !important;
+}
 .iframe-steprenderer{
     margin-left: 0px !important;
 }
@@ -7,5 +60,5 @@
 }
 
 .steprenderer-content{
-    padding: 20px !important;
+    padding: 40px !important;
 }

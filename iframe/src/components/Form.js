@@ -1,7 +1,9 @@
 import React from 'react';
 import PhoneNumberInput from './inputs/PhoneNumberInput';
 import BaseInput from './inputs/BaseInput';
-import BaseButton from './inputs/BaseButton'
+import BaseButton from './inputs/BaseButton';
+import './Form.css';
+
 class Form extends React.Component {
     constructor() {
         super();
@@ -45,7 +47,9 @@ class Form extends React.Component {
         return (
             <form onSubmit={this.validateAndSubmit.bind(this)}>
                 {children}
-                <BaseButton  type="submit" value={this.props.buttonText} />
+                <div className="uk-width-1-1 uk-margin-small-top">
+                    <BaseButton type="submit" value={this.props.buttonText} />
+                </div>
             </form>
         );
     }

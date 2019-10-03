@@ -6,12 +6,12 @@ class BaseInput extends React.Component {
         error: ""
     }
 
-    componentDidMount() {
-        this.props.onRegister(this);
-    }
-    componentWillUnmount() {
-        this.props.onUnRegister(this);
-    }
+    // componentDidMount() {
+    //     this.props.onRegister(this);
+    // }
+    // componentWillUnmount() {
+    //     this.props.onUnRegister(this);
+    // }
     isClean() {
         return false;
     }
