@@ -8,6 +8,7 @@ import TextInput from './inputs/TextInput';
 import PassInput from './inputs/PassInput';
 import NumberInput from './inputs/NumberInput';
 
+
 class StepRenderer extends React.Component {
     render() {
         return (
@@ -22,8 +23,6 @@ class StepRenderer extends React.Component {
                             <TextInput name="field1" placeholder="رمز عبور اینترنت بانک"/>
                             <TextInput name="field1" placeholder="کد امنیتی" />
                         </div>
-                        <div className="step-bank-inputs">
-                        </div>
                     </Form> */}
                     <Form buttonText="مرحله بعد">
                     <p style={{ textAlign: 'right', marginTop: '20px', fontSize:'22px' }}>ثبت اطلاعات کارت</p>
@@ -31,9 +30,8 @@ class StepRenderer extends React.Component {
                             <PassInput type="password" name="cvv2" placeholder="CVV2" />
                             <PassInput type="password" name="pass2" placeholder="رمز دوم اینترنتی" />
                         </div>
-                            <label style={{ textAlign: 'right', display: 'block', marginBottom: '30px'}} className="uk-width-1-1">:تاریخ انقضای کارت</label>
                             <NumberInput type="number" placeholder="00" name="expire-date-month" />
-                            <NumberInput maxLength="2" type="number" placeholder="00" name="expire-date-day" />
+                            <NumberInput maxLength="2" type="number" placeholder="00" name="expire-date-day"/>
                     </Form>
                 </div>
             </div>

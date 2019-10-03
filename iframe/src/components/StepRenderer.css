@@ -24,9 +24,6 @@ select
     margin-bottom: 20px;
 }
 
-.step-bank-inputs{
-    margin-left: 0px !important;
-}
 .step-bank-inputs input{
     box-sizing: border-box;
 	-webkit-box-sizing: border-box;
