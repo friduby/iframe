@@ -8,7 +8,7 @@ import FetchContext from '../utils/FetchContext';
 class SMSVerification extends React.Component {
     state = {
         loading: false,
-        code_sent: false
+        code_sent: true
     };
     onSubmit(form) {
         this.setState({ loading: true });
