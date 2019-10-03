@@ -1,13 +1,16 @@
 import React from 'react';
 import BaseInput from './BaseInput';
-
+import './Input.css'
 class PassInput extends BaseInput {
     isClean() {
         this.setState({ error: "Error" });
     }
     renderInput() {
         return (
-            <input type={this.props.type || "password"} className="uk-input uk-width-1-1" style={{marginTop:'50px', marginBottom:'50px', float:'right', width:'50%'}} name={this.props.name} placeholder={this.props.placeholder} />
+            <div className="form-group">
+                <input type={this.props.type || "password"} className="form-control uk-input uk-width-1-1" style={{float:'right', width:'100%'}} name={this.props.name} />
+                <label className="form-control-placeholder" for={this.props.name}>{this.props.placeholder}</label>
+            </div>
         );
     }
 }
