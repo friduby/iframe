@@ -35,6 +35,8 @@ class BaseInput extends React.Component {
         );
     }
     render() {
+        if (this.props.hidden)
+            return null;
         return (
             <div>
                 {this.renderInput()}

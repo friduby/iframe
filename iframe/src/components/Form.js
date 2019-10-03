@@ -14,12 +14,12 @@ class Form extends React.Component {
         const children = this.props.children;
         let isValid = true;
         this.inputs.forEach(child => {
-            if (!child.isClean())
+            if (!child.isClean() && !child.props.hidden)
                 isValid = false;
         });
         console.log(isValid);
         if (isValid && this.props.onSubmit)
-            this.props.onSubmit();
+            this.props.onSubmit(this);
     }
 
     onRegister(child) {
@@ -30,6 +30,7 @@ class Form extends React.Component {
     }
     handleChilds(children) {
         return React.Children.map(children, (child, index) => {
+            console.log(child);
             if (child.props.children instanceof Array) {
                 let childs = this.handleChilds(child.props.children);
                 return React.cloneElement(child, child.props, childs);
