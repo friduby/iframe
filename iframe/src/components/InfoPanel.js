@@ -16,7 +16,7 @@ class InfoPanel extends React.Component {
                 <div className="info-deposit">
                 <div className="iframe-deposit uk-grid uk-align-center">
                         <div className="" style={{margin: '0px auto', padding:'20px 65px 20px 65px'}}>
-                            <p style={{display:'inline', fontSize:'25px',  float:'right'}}> 20000 </p> <span style={{ fontSize:'25px', display:'inline'}}>تومان</span>
+                            <p style={{display:'inline', fontSize:'25px',  float:'right'}}> ۲۰۰۰۰ </p> <span style={{ fontSize:'25px', display:'inline'}}>تومان</span>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ class InfoPanel extends React.Component {
                     </div>
                 </div>
                 <div className="info-help uk-width-2-3">
-                    <div className="time-remaining uk-grid">
+                    <div className="time-remaining" style={{textAlign:'center'}}>
                     <p style={{textAlign:'center'}}>نیاز به راهنمایی دارید؟</p>
                     <img src={gppLogo} alt="bank-logo" />
 

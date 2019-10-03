@@ -2,7 +2,7 @@ import React from 'react';
 import './Frame.css';
 
 
-import {Header, MainContent, Footer, InfoPanel} from './components'
+import {MainContent, Footer, InfoPanel} from './components'
 
 class Frame extends React.Component {
 	render() {

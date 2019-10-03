@@ -1,0 +1,8 @@
+button{
+    background: #00bc89; /* Old browsers */
+    background: -moz-linear-gradient(left,  #00bc89 0%, #80b559 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #00bc89 0%,#80b559 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #00bc89 0%,#80b559 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00bc89', endColorstr='#80b559',GradientType=1 );
+    width: 100%;
+}

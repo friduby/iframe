@@ -4,7 +4,6 @@ import SMSVerification from './SMSVerification';
 import StepRenderer from './StepRenderer';
 import Loader from './Loader';
 import FetchContext from '../utils/FetchContext';
-// import Logo from './Logo';
 import ProgressBar from './ProgressBar';
 
 

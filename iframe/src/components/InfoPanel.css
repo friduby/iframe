@@ -47,17 +47,18 @@
 }
 
 @media (max-width: 960px){
-    .info-time-remaining{
-        /* width: 45%; */
-    }
     
-    .time-remaining div{
-        padding-left: 0px !important; 
-    }
 }
 
 @media (max-width: 560px){
     .info-time-remaining{
-        width: 75%;
+        margin: 0px auto !important;
+        padding: 0px !important;
+    }
+    .iframe-deposit{
+        margin-bottom: 5px !important;
+    }
+    .support {
+        padding: 1px !important;
     }
 }
