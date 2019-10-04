@@ -2,15 +2,19 @@ import React from 'react';
 import BaseInput from "./BaseInput";
 
 class PhoneNumberInput extends BaseInput {
-    isClean() {
+    isClean(value) {
+        this.setState({ error: "" });
+        let val = value || this.state.value;
         if (this.props.disabled)
             return true;
-        if (this.state.value.length < 5) {
-            this.setState({ error: "Should be longer" });
-            return false;
+        if (val.length == 11 && val[0] == 0) {
+            return true;
         }
-        this.setState({ error: "" });
-        return true;
+        if (val.length == 10 && val[0] == 9) {
+            return true;
+        }
+        this.setState({ error: "شماره وارد شده صحیح نیست" });
+        return false;
     }
     onValueChange(e) {
         this.setState({ value: e.target.value });
@@ -18,7 +22,7 @@ class PhoneNumberInput extends BaseInput {
             this.setState({ error: "" });
         }
         else
-            this.isClean();
+            this.isClean(e.target.value);
     }
     renderError() {
         return(
@@ -37,7 +41,7 @@ class PhoneNumberInput extends BaseInput {
             <div style={{display:'block'}}>
                 <label className="uk-width-1-2" style={{paddingLeft:'10px', fontSize:'14px'}}>{this.props.inputLabel}</label>
                 <br />
-                <input className="uk-input-medium uk-margin-small-top uk-width-3-4" style={{height:'30px', display:'inline', textAlign:'center'}} type="text" value={this.props.defaultVal || this.state.value} onChange={this.onValueChange.bind(this)}></input>
+                <input className="form-control uk-input-medium uk-margin-small-top uk-width-3-4" style={{height:'30px', display:'inline', textAlign:'center'}} placeholder={this.props.placeholder} type="text" value={this.props.defaultVal || this.state.value} onChange={this.onValueChange.bind(this)} maxLength={this.props.maxLength}></input>
             </div>
         );
     }

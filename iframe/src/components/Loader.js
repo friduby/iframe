@@ -13,7 +13,7 @@ class Loader extends React.Component {
         
         if (this.props.loading)
             return (
-                <div className="iframe-loader uk-card uk-card-default uk-align-center" style={{paddingTop:'30px', textAlign:'center', marginTop:'200px'}} uk-spinner="ratio: 1" />
+                <div className="iframe-loader uk-card uk-card-default uk-align-center" style={{paddingTop:'30px', textAlign:'center', marginTop:'25%'}} uk-spinner="ratio: 1" />
             );
         
 		return (

@@ -32,9 +32,9 @@ class MainContent extends React.Component {
                 <div className="iframe-main-content">
                     {/* <Loader loading={this.state.loading} failed={this.state.failed}> */}
                     {this.state.sms_verify ? (
+                        <StepRenderer />
+                        ) : (
                             <SMSVerification />
-                    ) : (
-                            <StepRenderer />
                         )}
                     {/* </Loader> */}
                 </div>

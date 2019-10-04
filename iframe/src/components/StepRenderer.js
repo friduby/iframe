@@ -26,7 +26,8 @@ class StepRenderer extends React.Component {
                     </Form> */}
                     <Form buttonText="ثبت اطلاعات">
                         <p style={{ textAlign: 'right'}}>ثبت شماره کارت</p>
-                            <CardInput />
+                        <CardInput />
+                        <CaptchaInput />
                     </Form>
                     {/* <Form buttonText="مرحله بعد">
                         <p style={{ textAlign: 'right', marginTop: '10px', fontSize:'22px' }}>ثبت اطلاعات کارت</p>
