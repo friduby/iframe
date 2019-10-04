@@ -31,11 +31,10 @@ class InfoPanel extends React.Component {
                     </div>
                 </div>
                 <div className="info-help uk-width-2-3">
-                    <div className="time-remaining" style={{textAlign:'center'}}>
-                    <p style={{textAlign:'center'}}>نیاز به راهنمایی دارید؟</p>
-                    <img src={gppLogo} alt="gopaypro-logo" />
-
-                </div>
+                    <div className="time-remaining uk-grid" style={{textAlign:'center'}}>
+                    <p style={{textAlign:'center'}} className="uk-width-1-1@m uk-width-1-2@s">نیاز به راهنمایی دارید؟</p>
+                    <img src={gppLogo} alt="gopaypro-logo" className="uk-width-1-1@m uk-width-1-2@s" />
+                    </div>
                 </div>
             </div>
         );
