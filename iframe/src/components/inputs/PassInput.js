@@ -3,7 +3,7 @@ import BaseInput from './BaseInput';
 import './Input.css'
 class PassInput extends BaseInput {
     isClean() {
-        this.setState({ error: "Error" });
+        return true;
     }
     onChange(e) {
         this.setState({ value: e.target.value });
