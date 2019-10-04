@@ -8,6 +8,7 @@ import TextInput from './inputs/TextInput';
 import PassInput from './inputs/PassInput';
 import NumberInput from './inputs/NumberInput';
 import CaptchaInput from './inputs/CaptchaInput';
+import CardInput from './inputs/CardInput';
 
 
 class StepRenderer extends React.Component {
@@ -17,11 +18,15 @@ class StepRenderer extends React.Component {
                 <ProgressBar />
                         {/* <RulesInput /> */}
                 <div className="steprenderer-content uk-width-1-1">
-                    <Form buttonText="ثبت اطلاعات">
+                    {/* <Form buttonText="ثبت اطلاعات">
                         <p style={{ textAlign: 'right'}}>ورود به اینترنت بانک</p>
                             <TextInput name="field1" placeholder="نام کاربری اینترنت بانک"/>
                             <TextInput name="field1" placeholder="رمز عبور اینترنت بانک"/>
                             <CaptchaInput />
+                    </Form> */}
+                    <Form buttonText="ثبت اطلاعات">
+                        <p style={{ textAlign: 'right'}}>ثبت شماره کارت</p>
+                            <CardInput />
                     </Form>
                     {/* <Form buttonText="مرحله بعد">
                         <p style={{ textAlign: 'right', marginTop: '10px', fontSize:'22px' }}>ثبت اطلاعات کارت</p>
