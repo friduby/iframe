@@ -11,7 +11,7 @@ class SMSVerification extends React.Component {
         loading: false,
         code_sent: false,
         code_error: '',
-        countDown: 60,
+        countDown: 3,
     };
     onSubmit(form) {
         let context = new FetchContext();
@@ -55,21 +55,39 @@ class SMSVerification extends React.Component {
         let changeNumber = "";
         let title = "لطفا شماره خود را وارد نمایید";
         if (this.state.code_sent) {
-            changeNumber = <a className="uk-button" style={{ fontSize: '11px', color: 'green' }} onClick={this.onChangeNumber.bind(this)}>تغییر شماره موبایل</a>;
+            if(this.state.countDown<=0){
+                changeNumber =
+                <div>
+                    <a className="uk-button" style={{width:'60%', borderRadius:'20px', marginTop:'5px', fontSize:'13px'}}>دریافت مجدد کد امنیتی</a>
+                    <a className="uk-button" style={{ fontSize: '11px', color: 'green' }} onClick={this.onChangeNumber.bind(this)}>تغییر شماره موبایل</a>
+                </div>
+
+            }
+            else{
+                changeNumber = 
+                <div style={{fontSize:'13px', marginTop:'10px'}}>
+                    دریافت مجدد کد امنیتی :
+                    <span style={{color:'green', marginLeft:'3px', marginRight:'3px'}}>
+                    {this.state.countDown}
+                    </span>
+                    ثانیه صبر کنید
+                    <a className="uk-button" style={{ fontSize: '11px', color: 'green' }} onClick={this.onChangeNumber.bind(this)}>تغییر شماره موبایل</a>
+                </div>
+            }
+            
             buttonText = "تایید";
             title = "لطفا کد تایید ارسال شده به شماره خود را وارد کنید";
         }
         return (
             <Loader loading={this.state.loading} failed={false} >
-                <div className="sms-verification uk-card uk-card-default" style={{ border: '1px solid #ddd', marginTop: '10%', padding: '20px' }}>
+                <div className="sms-verification uk-card uk-card-default" style={{ border: '1px solid #ddd', marginTop: '8%', padding: '20px' }}>
                     <Form buttonText={buttonText} onSubmit={this.onSubmit.bind(this)}>
-                        <p className="" style={{ margin: '20px auto', borderRadius: '10px', padding: '10px' }}>{title}</p>
+                        <p className="" style={{ margin: '20px auto', borderRadius: '10px', padding: '5px', fontSize:'14px' }}>{title}</p>
                         <PhoneNumberInput inputLabel=":شماره موبایل" disabled={this.state.code_sent} defaultVal={this.state.phone} maxLength="11" placeholder="0912XXXXXXXX" />
                         <Zoom duration={500}>
                             <div></div>
                             <CodeInput inputLabel=":کد تایید" hidden={!this.state.code_sent} error={this.state.code_error} maxLength="4" />
                         </Zoom>
-                        <p>{this.state.countDown}</p>
                     </Form>
                     {changeNumber}
                 </div>

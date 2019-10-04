@@ -8,7 +8,7 @@ class NumberInput extends BaseInput {
     renderInput() {
         return (
             <div className="form-group" >
-                <input type={this.props.type || "number"} className="form-control uk-input uk-width-1-1" style={{float:'right', width:'100%'}} name={this.props.name} placeholder={this.props.placeholder} />
+                <input type={this.props.type || "number"} required className="form-control uk-input uk-width-1-1" style={{float:'right', width:'100%'}} name={this.props.name} placeholder={this.props.placeholder} />
             </div>
         );
     }
