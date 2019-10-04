@@ -32,7 +32,7 @@ class StepRenderer extends React.Component {
                                 case "text":
                                     return <TextInput name={input.name} placeholder={input.name} />
                                 case "password":
-                                        return <PassInput name={input.name} placeholder={input.name} />
+                                    return <PassInput name={input.name} placeholder={input.name} />
                                 default:
                                     return null;
                             }

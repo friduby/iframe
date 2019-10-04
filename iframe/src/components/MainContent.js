@@ -40,7 +40,7 @@ class MainContent extends React.Component {
                 <div className="iframe-main-content">
                     {/* chera das mizani code o */}
                     <Loader loading={this.state.loading} failed={this.state.failed}>
-                    {!this.state.sms_verify ? (
+                    {this.state.sms_verify ? (
                         <SMSVerification onVerify={this.navigateToFirstStep.bind(this)} />
                         ) : (
                             <StepRenderer steps={this.state.steps} step={this.state.step} />
