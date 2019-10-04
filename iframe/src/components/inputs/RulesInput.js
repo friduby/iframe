@@ -21,7 +21,7 @@ class RulesInput extends BaseInput {
         return (
             <div className="content-container">
                 <p>قوانین و شرایط استفاده</p>
-                <div className="iframe-rules">
+                <div className="iframe-rules" style={{overflowY:'scroll'}}>
                     this is the ruless
                 </div>
 
