@@ -6,17 +6,55 @@ import RulesInput from './inputs/RulesInput';
 import Form from './Form';
 import TextInput from './inputs/TextInput';
 import PassInput from './inputs/PassInput';
-import NumberInput from './inputs/NumberInput';
-import CaptchaInput from './inputs/CaptchaInput';
-import CardInput from './inputs/CardInput';
+import FetchContext from '../utils/FetchContext';
 
 
 class StepRenderer extends React.Component {
+    componentDidMount() {
+        if (this.props.step == 0) {
+            let context = new FetchContext();
+            context.fetch('start_payment').then(() => {
+
+            });
+        }
+
+        console.log('step is ' + this.props.step);
+    }
+
+    UNSAFE_componentWillMount() {
+        this.steps = this.props.steps.slice(0);
+    }
+
+    goToNextStep(form) {
+        let context = new FetchContext();
+        let data = {};
+        for (let i = 0; i < form.inputs.length; i++) {
+            data[form.inputs[i].props.fieldName] = form.inputs[i].state.value;
+        }
+
+        console.log(data);
+        context.fetch('submit_step', data);
+
+        this.props.showLoading();
+        this.poolInterval = setInterval(this.poolNextStep.bind(this), 1000);
+    }
+
+    poolNextStep() {
+        let context = new FetchContext();
+        context.fetch('pool_step', { step: this.props.step }).then((response) => {
+            if (response.data.succeed) {
+                this.props.showNextStep();
+                clearInterval(this.poolInterval);
+            }
+        });
+
+    }
+
     render() {
         return (
             <div>
-                <ProgressBar steps={this.props.steps} step={this.props.step} />
-                        {/* <RulesInput /> */}
+                <ProgressBar steps={this.steps} step={this.props.step} />
+                {/* <RulesInput /> */}
                 <div className="steprenderer-content uk-width-1-1">
                     {/* <Form buttonText="ثبت اطلاعات">
                         <p style={{ textAlign: 'right'}}>ورود به اینترنت بانک</p>
@@ -24,15 +62,15 @@ class StepRenderer extends React.Component {
                             <TextInput name="field1" placeholder="رمز عبور اینترنت بانک"/>
                             <CaptchaInput />
                     </Form> */}
-                    <Form buttonText="ثبت اطلاعات">
-                        {this.props.steps[this.props.step].inputs.map((input, i) => {
+                    <Form buttonText="ادامه" onSubmit={this.goToNextStep.bind(this)}>
+                        {this.steps[this.props.step].inputs.map((input, i) => {
                             switch (input.type) {
                                 case "rules":
-                                    return <RulesInput />
+                                    return <RulesInput fieldName="rules" />
                                 case "text":
-                                    return <TextInput name={input.name} placeholder={input.name} />
+                                    return <TextInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
                                 case "password":
-                                    return <PassInput name={input.name} placeholder={input.name} />
+                                    return <PassInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
                                 default:
                                     return null;
                             }
