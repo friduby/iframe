@@ -11,7 +11,6 @@ class SMSVerification extends React.Component {
         loading: false,
         code_sent: false,
         code_error: '',
-        countDown: 3,
     };
     onSubmit(form) {
         let context = new FetchContext();
@@ -24,7 +23,7 @@ class SMSVerification extends React.Component {
             context.fetch('submit_phone', { phone })
                 .then(response => {
                     if (response.data.succeed == true) {
-                        this.setState({ loading: false, code_sent: true, phone: phone }, () => {
+                        this.setState({ loading: false, code_sent: true, phone: phone, countDown: 3 }, () => {
                             setInterval(() => {
                                 this.setState({ countDown: this.state.countDown - 1 });
                             }, 1000);
@@ -47,6 +46,16 @@ class SMSVerification extends React.Component {
         this.setState({ loading: true });
 
     }
+    resendVerifyCode() {
+        let context = new FetchContext();
+        context.fetch('submit_phone', { phone: this.state.phone })
+                .then(response => {
+                    if (response.data.succeed == true) {
+                        this.setState({ loading: false, code_sent: true, countDown: 3 });
+                    }
+                }).catch(reason => {
+                });
+    }
     onChangeNumber() {
         this.setState({ code_sent: false, phone: null });
     }
@@ -55,13 +64,13 @@ class SMSVerification extends React.Component {
         let changeNumber = "";
         let title = "لطفا شماره خود را وارد نمایید";
         let resend = (
-            <span style={{ color: 'green', marginLeft: '3px', marginRight: '3px' }}>
-                {this.state.countDown}ثانیه صبر کنید
-            </span>
+            <div style={{display: 'inline'}}><span style={{ color: 'green', marginLeft: '3px', marginRight: '3px' }}>
+                {this.state.countDown}
+            </span>ثانیه صبر کنید</div>
         );
 
         if (this.state.countDown <= 0) {
-            resend = (<a>ارسال مجدد</a>);
+            resend = (<a onClick={this.resendVerifyCode.bind(this)}> ارسال مجدد</a>);
         }
 
         if (this.state.code_sent) {
