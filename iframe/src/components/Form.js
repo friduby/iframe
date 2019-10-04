@@ -30,7 +30,6 @@ class Form extends React.Component {
     }
     handleChilds(children) {
         return React.Children.map(children, (child, index) => {
-            console.log(child);
             if (child.props.children instanceof Array) {
                 let childs = this.handleChilds(child.props.children);
                 return React.cloneElement(child, child.props, childs);

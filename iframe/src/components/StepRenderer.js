@@ -15,7 +15,7 @@ class StepRenderer extends React.Component {
     render() {
         return (
             <div>
-                <ProgressBar />
+                <ProgressBar steps={this.props.steps} step={this.props.step} />
                         {/* <RulesInput /> */}
                 <div className="steprenderer-content uk-width-1-1">
                     {/* <Form buttonText="ثبت اطلاعات">
@@ -25,9 +25,21 @@ class StepRenderer extends React.Component {
                             <CaptchaInput />
                     </Form> */}
                     <Form buttonText="ثبت اطلاعات">
-                        <p style={{ textAlign: 'right'}}>ثبت شماره کارت</p>
+                        {this.props.steps[this.props.step].inputs.map((input, i) => {
+                            switch (input.type) {
+                                case "rules":
+                                    return <RulesInput />
+                                case "text":
+                                    return <TextInput name={input.name} placeholder={input.name} />
+                                case "password":
+                                        return <PassInput name={input.name} placeholder={input.name} />
+                                default:
+                                    return null;
+                            }
+                        })}
+                        {/* <p style={{ textAlign: 'right'}}>ثبت شماره کارت</p>
                         <CardInput />
-                        <CaptchaInput />
+                        <CaptchaInput /> */}
                     </Form>
                     {/* <Form buttonText="مرحله بعد">
                         <p style={{ textAlign: 'right', marginTop: '10px', fontSize:'22px' }}>ثبت اطلاعات کارت</p>

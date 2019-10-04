@@ -10,10 +10,13 @@ class ProgressBar extends React.Component {
 				<div className="iframe-progress uk-height-1-1">
 					<div className="step-container uk-width-1-1 uk-grid">
 						<ProgressBarStep stepNumber="۵" stepName="پایان" small />
-						<ProgressBarStep stepNumber="۴" stepName="ثبت اطلاعات کارت" active />
-						<ProgressBarStep stepNumber="۳" stepName="ثبت شماره کارت" active />
+						{this.props.steps.reverse().map((step, i) => {
+							return <ProgressBarStep stepNumber="۴" stepName={step.title} active={i >= this.props.steps.length-this.props.step-1} />;
+						})}
+						{/* {/* <ProgressBarStep stepNumber="۴" stepName="ثبت اطلاعات کارت" active /> */}
+						{/* <ProgressBarStep stepNumber="۳" stepName="ثبت شماره کارت" active />
 						<ProgressBarStep stepNumber="۲" stepName="ورود به اینترنت بانک" active />
-						<ProgressBarStep stepNumber="۱" stepName="قوانین" active first small />
+						<ProgressBarStep stepNumber="۱" stepName="قوانین" active first small /> */}
 					</div>
 				</div>
 			</div>

@@ -1,7 +1,12 @@
 import React from 'react';
 import PhoneNumberInput from './PhoneNumberInput';
+import BaseInput from './BaseInput';
 
 class CodeInput extends PhoneNumberInput {
+    componentDidMount() {
+        super.componentDidMount();
+        this.setState({ error: this.props.error });
+    }
     isClean(value) {
         let val = value || this.state.value;
         if (val.length == 4)

@@ -10,7 +10,9 @@ import ProgressBar from './ProgressBar';
 class MainContent extends React.Component {
     state = {
         loading: true,
-        sms_verify: false
+        sms_verify: false,
+        steps:[],
+        step:1
     }
     UNSAFE_componentWillMount() {
         let context = new FetchContext();
@@ -18,25 +20,31 @@ class MainContent extends React.Component {
             .then(response => {
                 this.setState({
                     sms_verify: response.data.sms_verify,
+                    steps: response.data.steps,
                     loading: false
-                });
+                }, () => console.log(this.state.steps));
             }).catch(reason => {
                 this.setState({
                     failed: true
                 });
             });
     }
+
+    navigateToFirstStep() {
+        this.setState({ sms_verify: false });
+    }
+
     render() {
         return (
             <div className="iframe-main-content uk-width-2-3@m uk-width-1-1@s">
                 <div className="iframe-main-content">
-                    {/* <Loader loading={this.state.loading} failed={this.state.failed}> */}
+                    <Loader loading={this.state.loading} failed={this.state.failed}>
                     {this.state.sms_verify ? (
-                        <StepRenderer />
+                        <SMSVerification onVerify={this.navigateToFirstStep.bind(this)} />
                         ) : (
-                            <SMSVerification />
+                            <StepRenderer steps={this.state.steps} step={this.state.step} />
                         )}
-                    {/* </Loader> */}
+                    </Loader>
                 </div>
             </div>
         );
