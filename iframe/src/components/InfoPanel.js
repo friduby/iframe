@@ -12,7 +12,7 @@ class InfoPanel extends React.Component {
                     <img src={bankLogo} alt="bank-logo" />
                 </div>
                 <div className="info-deposit uk-width-1-2@s uk-width-1-1@m ">
-                            <p style={{display:'inline', fontSize:'25px',  float:'right'}}> ۲۰۰۰۰ </p> <span style={{ fontSize:'25px', display:'inline'}}>تومان</span>
+                            <p style={{display:'inline', fontSize:'25px',  float:'right'}}> {this.props.info.amount} </p> <span style={{ fontSize:'25px', display:'inline'}}>ریال</span>
                 </div>
                 <div className="info-time-remaining">
                     <div className="time-remaining">

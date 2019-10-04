@@ -22,7 +22,15 @@
 
 .iframe-rules{
     border: 1px solid #ccc;
-    width: 80%;
+    width: 90%;
     margin: 10px auto;
     height: 200px;
 }
+
+.iframe-rules-text {
+    color:#333 !important;
+    font-size: 0.8rem !important;
+    direction: rtl !important;
+    text-align: right !important;
+    padding-bottom: 7px !important;
+  }

@@ -5,20 +5,26 @@ import BaseButton from './inputs/BaseButton';
 import './Form.css';
 
 class Form extends React.Component {
+    state = {
+        valid: false
+    }
     constructor() {
         super();
         this.inputs = [];
     }
+
+    isValid() {
+        let v = true;
+        this.inputs.forEach(child => {
+            if (!child.isClean() && !child.props.hidden)
+                v = false;
+        });
+        return v;
+    }
     validateAndSubmit(e) {
         e.preventDefault();
         const children = this.props.children;
-        let isValid = true;
-        this.inputs.forEach(child => {
-            if (!child.isClean() && !child.props.hidden)
-                isValid = false;
-        });
-        console.log(isValid);
-        if (isValid && this.props.onSubmit)
+        if (this.isValid() && this.props.onSubmit)
             this.props.onSubmit(this);
     }
 
@@ -39,17 +45,23 @@ class Form extends React.Component {
             return React.cloneElement(child, {
                 index,
                 onRegister: this.onRegister.bind(this),
-                onUnRegister: this.onUnRegister.bind(this)
+                onUnRegister: this.onUnRegister.bind(this),
+                changeCallback: this.onInputsChange.bind(this)
             });
         });
     }
+
+    onInputsChange() {
+        this.setState({ valid: this.isValid() });
+    }
+
     render() {
         const children = this.handleChilds(this.props.children);
         return (
             <form onSubmit={this.validateAndSubmit.bind(this)} className="iframe-full-height" style={{paddingBottom:'10px'}}>
                 {children}
                 <div className="uk-width-1-1 iframe-full-height" style={{position:'relative', top:'5px'}}>
-                    <BaseButton type="submit" value={this.props.buttonText} />
+                    <BaseButton type="submit" value={this.props.buttonText} disabled={!this.state.valid} />
                 </div>
                 <div style={{clear:'both'}}></div>
             </form>

@@ -7,6 +7,7 @@ import Form from './Form';
 import TextInput from './inputs/TextInput';
 import PassInput from './inputs/PassInput';
 import FetchContext from '../utils/FetchContext';
+import CaptchaInput from './inputs/CaptchaInput';
 
 
 class StepRenderer extends React.Component {
@@ -42,8 +43,12 @@ class StepRenderer extends React.Component {
     poolNextStep() {
         let context = new FetchContext();
         context.fetch('pool_step', { step: this.props.step }).then((response) => {
-            if (response.data.succeed) {
+            if (response.data.status == 'done') {
                 this.props.showNextStep();
+                clearInterval(this.poolInterval);
+            }
+            else if (response.data.status == 'failed') {
+                this.props.showError(response.data.error);
                 clearInterval(this.poolInterval);
             }
         });
@@ -71,6 +76,8 @@ class StepRenderer extends React.Component {
                                     return <TextInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
                                 case "password":
                                     return <PassInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
+                                case "captcha":
+                                    return <CaptchaInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
                                 default:
                                     return null;
                             }
@@ -78,7 +85,7 @@ class StepRenderer extends React.Component {
                         {/* <p style={{ textAlign: 'right'}}>ثبت شماره کارت</p>
                         <CardInput />
                         <CaptchaInput /> */}
-                    <div style={{clear:'both'}}></div>
+                        <div style={{ clear: 'both' }}></div>
 
                     </Form>
                     {/* <Form buttonText="مرحله بعد">
@@ -90,7 +97,7 @@ class StepRenderer extends React.Component {
                         <NumberInput type="number" placeholder="00" name="expire-date-day"/>
                     </Form> */}
                 </div>
-                <div style={{clear:'both'}}></div>
+                <div style={{ clear: 'both' }}></div>
 
             </div>
         );

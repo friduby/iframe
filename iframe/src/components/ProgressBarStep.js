@@ -6,6 +6,7 @@ class ProgressBar extends React.Component {
         let className="step-circle";
         let circle="";
         let stepName = "step-name"
+        let nodeClassName = `iframe-progress-step uk-width-1-${this.props.num}`;
         if(this.props.active){
             className += ' active';
         }
@@ -26,7 +27,7 @@ class ProgressBar extends React.Component {
             stepName += " step-name-small";
         }
 		return (
-            <div className="iframe-progress-step uk-width-1-5">
+            <div className={nodeClassName}>
 				<span className={lineClassName}></span>
                 <div className={className}>
                     {circle}

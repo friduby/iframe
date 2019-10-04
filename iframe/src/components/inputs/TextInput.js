@@ -3,11 +3,12 @@ import BaseInput from './BaseInput';
 import './Input.css'
 class TextInput extends BaseInput {
     isClean() {
-        this.setState({ error: "" });
-        return true;
+        return this.state.value.length > 0;
     }
     onChange(e) {
-        this.setState({ value: e.target.value });
+        this.setState({ value: e.target.value }, () => {
+            this.props.changeCallback();
+        });
     }
     renderInput() {
         return (
