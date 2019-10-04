@@ -46,11 +46,12 @@ class Form extends React.Component {
     render() {
         const children = this.handleChilds(this.props.children);
         return (
-            <form onSubmit={this.validateAndSubmit.bind(this)}>
+            <form onSubmit={this.validateAndSubmit.bind(this)} className="iframe-full-height">
                 {children}
-                <div className="uk-width-1-1 uk-margin-small-top">
+                <div className="uk-width-1-1 iframe-full-height" style={{position:'relative', top:'-25px'}}>
                     <BaseButton type="submit" value={this.props.buttonText} />
                 </div>
+                <div style={{clear:'both'}}></div>
             </form>
         );
     }

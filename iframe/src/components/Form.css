@@ -6,3 +6,9 @@ button{
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00bc89', endColorstr='#80b559',GradientType=1 );
     width: 100%;
 }
+
+.form-button{
+    position: absolute;
+    bottom: -10px !important;
+    border-radius: 25px !important;
+}

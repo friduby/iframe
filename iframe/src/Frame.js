@@ -7,7 +7,7 @@ import {MainContent, Footer, InfoPanel} from './components'
 class Frame extends React.Component {
 	render() {
 		return (
-			<div className="container uk-grid">		
+			<div className="container uk-grid ">		
 				<InfoPanel />
 				<MainContent />
 				<Footer />

@@ -52,10 +52,10 @@ class StepRenderer extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="iframe-full-height">
                 <ProgressBar steps={this.steps} step={this.props.step} />
                 {/* <RulesInput /> */}
-                <div className="steprenderer-content uk-width-1-1">
+                <div className="steprenderer-content uk-width-1-1 iframe-full-height">
                     {/* <Form buttonText="ثبت اطلاعات">
                         <p style={{ textAlign: 'right'}}>ورود به اینترنت بانک</p>
                             <TextInput name="field1" placeholder="نام کاربری اینترنت بانک"/>
@@ -78,6 +78,8 @@ class StepRenderer extends React.Component {
                         {/* <p style={{ textAlign: 'right'}}>ثبت شماره کارت</p>
                         <CardInput />
                         <CaptchaInput /> */}
+                    <div style={{clear:'both'}}></div>
+
                     </Form>
                     {/* <Form buttonText="مرحله بعد">
                         <p style={{ textAlign: 'right', marginTop: '10px', fontSize:'22px' }}>ثبت اطلاعات کارت</p>
@@ -88,6 +90,8 @@ class StepRenderer extends React.Component {
                         <NumberInput type="number" placeholder="00" name="expire-date-day"/>
                     </Form> */}
                 </div>
+                <div style={{clear:'both'}}></div>
+
             </div>
         );
     }

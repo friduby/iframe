@@ -54,6 +54,5 @@ select
 }
 
 .steprenderer-content{
-    padding: 40px;
-    padding-bottom:15px;
+    padding: 40px 40px 0px 40px;
 }

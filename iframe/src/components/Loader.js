@@ -5,7 +5,7 @@ class Loader extends React.Component {
 	render() {
         if (this.props.failed)
             return (
-                <div class="iframe-loader uk-card uk-card-default" style={{textAlign:'center', marginTop:'170px'}}>
+                <div class="iframe-loader uk-card uk-card-default" style={{textAlign:'center', marginTop:'120px'}}>
                     <i class="fas fa-exclamation-triangle" style={{margin:'10px auto',fontSize:'50px',color:'red'}}></i>
                     <p style={{fontSize:'20px'}}>{this.props.error || "!خطا در بارگذاری اطلاعات"}</p>
                 </div>
@@ -17,7 +17,7 @@ class Loader extends React.Component {
             );
         
 		return (
-            <div className="">{this.props.children}</div>	
+            <div className="iframe-full-height">{this.props.children}</div>	
 		);  
 	}
 }

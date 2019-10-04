@@ -1,7 +1,9 @@
 .iframe-info-panel{
-    padding-left: 0px !important;
+    padding: 0px !important;
+    margin-left: 0px !important;
 }
 .info-time-remaining{
+    padding-left: 0px !important;
     background-color: #ccc;
     width: 85%;
     margin: 10px auto 0px auto;
@@ -9,14 +11,16 @@
     border: 2px dashed #bbb;
     border-radius: 10px;
 }
-.iframe-deposit{
-    width: 85%;
+.info-deposit{
+    margin-left: 20px !important;
     background-color: #ccc;
     color: #666;
     border: 2px dashed #bbb;
+    padding: 20px 60px 0px 60px  !important;
     border-radius: 10px;
-}
+    width: 85%;
 
+}
 .time-remaining{
     text-align: center;
     padding: 20px 20px 20px 20px !important;
@@ -27,8 +31,7 @@
 }
 
 .info-bank-logo{
-    margin: 0px auto;
-    padding: 5px !important;
+    padding: 40px 70px 40px 70px !important;
 }
 .info-bank-logo img{
     margin: 0px auto;
@@ -51,12 +54,30 @@
 }
 
 @media (max-width: 560px){
+    .info-bank-logo{
+        width: 50%;
+        margin: 10px 0px 0px 0px !important;
+        padding: 10px 30px 10px 40px !important;
+    }
+    .info-deposit{
+        border: 0px;
+        background-color: transparent;
+        width: 50%;
+        margin: 10px 0px 0px 0px !important;
+        padding: 20px 50px 0px 50px !important;
+    }
+    .info-deposit span{
+        font-size: 19px !important;
+    }
+    .info-deposit p{
+       margin-top: -4px;
+    }
     .info-time-remaining{
         margin: 0px auto !important;
         padding: 0px !important;
     }
     .iframe-deposit{
-        margin-bottom: 5px !important;
+        margin-bottom: 0px !important;
     }
     .support {
         padding: 1px !important;

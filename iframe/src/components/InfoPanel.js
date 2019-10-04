@@ -7,18 +7,12 @@ import bankLogo from '../assets/shahrpng.png'
 class InfoPanel extends React.Component {
     render() {
         return (
-            <div className="iframe-info-panel uk-width-1-3@m uk-width-1-1@s" style={{backgroundColor:'#ddd', paddingTop:'30px', marginBottom:'0px !important'}}>
-                <div className="info-bank-logo uk-width-2-3">
-                    <div className="time-remaining uk-grid">
-                        <img src={bankLogo} alt="bank-logo" />
-                    </div>
+            <div className="iframe-info-panel uk-width-1-3@m uk-width-1-1@s uk-grid" style={{backgroundColor:'#ddd', paddingTop:'30px', marginBottom:'0px !important'}}>
+                <div className="info-bank-logo uk-width-1-1@m uk-width-1-2@s">
+                    <img src={bankLogo} alt="bank-logo" />
                 </div>
-                <div className="info-deposit">
-                <div className="iframe-deposit uk-grid uk-align-center">
-                        <div className="" style={{margin: '0px auto', padding:'20px 65px 20px 65px'}}>
+                <div className="info-deposit uk-width-1-2@s uk-width-1-1@m ">
                             <p style={{display:'inline', fontSize:'25px',  float:'right'}}> ۲۰۰۰۰ </p> <span style={{ fontSize:'25px', display:'inline'}}>تومان</span>
-                        </div>
-                    </div>
                 </div>
                 <div className="info-time-remaining">
                     <div className="time-remaining">
@@ -39,7 +33,7 @@ class InfoPanel extends React.Component {
                 <div className="info-help uk-width-2-3">
                     <div className="time-remaining" style={{textAlign:'center'}}>
                     <p style={{textAlign:'center'}}>نیاز به راهنمایی دارید؟</p>
-                    <img src={gppLogo} alt="bank-logo" />
+                    <img src={gppLogo} alt="gopaypro-logo" />
 
                 </div>
                 </div>
