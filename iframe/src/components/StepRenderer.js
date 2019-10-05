@@ -82,7 +82,14 @@ class StepRenderer extends React.Component {
                                 case "captcha":
                                     if (this.props.captcha)
                                         return <CaptchaInput image={this.props.captcha} fieldName={input.field_name} name={input.name} placeholder={input.name} onRefresh={this.goToNextStep.bind(this)} />
-                                default:
+                                case "date":
+                                    return (
+                                        <div>
+                                             <TextInput fieldName="year" name={input.name} placeholder="98" />
+                                             <TextInput fieldName="month" name={input.name} placeholder="04" />
+                                        </div>                                        
+                                    )
+                                        default:
                                     return <div></div>;
                             }
                         })}
