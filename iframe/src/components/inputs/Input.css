@@ -20,8 +20,39 @@
     transform: translate3d(0, -120%, 0);
     opacity: 1;
   }
+  #date-input:focus + .form-control-placeholder,
+  #date-input:not([value=""]) + .form-control-placeholder{
+    display: none !important;
+  }
 
   .form-control:disabled {
     background-color: #ddd;
     color: grey;
   }
+
+  #iframe-toggle-password{
+    cursor: pointer;
+  }
+
+  .iframe-success{
+    text-align: center;
+    margin: 0px auto;
+  }
+  .iframe-success-circle{
+      background: #00bc89; /* Old browsers */
+      background: -moz-linear-gradient(left,  #00bc89 0%, #80b559 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(left,  #00bc89 0%,#80b559 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to right,  #00bc89 0%,#80b559 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00bc89', endColorstr='#80b559',GradientType=1 ); /* IE6-9 */
+      position: relative;
+      border-radius: 100px;
+      margin: 0px auto;
+      width: 120px;
+      height: 120px;
+  }
+  .iframe-success-circle svg{
+    font-size: 70px;
+    position: relative;
+    top: 26px;
+    color: white;;
+}
