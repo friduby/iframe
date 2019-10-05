@@ -1,11 +1,12 @@
 .container{
     background-color: white;
-    box-shadow: 2px 2px 30px;
+    /* box-shadow: 2px 2px 30px; */
     width:900px;
     font-family: 'Vazir' !important;
     padding-bottom: 0px !important;
     margin: 0px auto;
     margin-bottom: 0px !important;
+    height: 100%;
 }
 
 ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
