@@ -3,6 +3,9 @@ import BaseInput from './BaseInput';
 
 
 class RulesInput extends BaseInput {
+    constructor(props){
+        super(props);
+    }
     isClean() {
         this.setState({ error: "" });
         if (!this.state.value) {
@@ -18,10 +21,15 @@ class RulesInput extends BaseInput {
         this.setState({ value: e.target.checked }, () => {
             if (this.state.value)
                 this.setState({ error: "" });
-            console.log(this.state.value);
             this.props.changeCallback();
         });
 
+    }
+
+    checkboxClick() {
+        this.setState({ value: !this.state.value }, () =>{
+            this.props.changeCallback();
+        });
     }
     renderInput() {
         return (
@@ -42,12 +50,11 @@ class RulesInput extends BaseInput {
                 </div>
 
                 <div style={{ float: 'right', marginRight: '10px', marginTop: '10px', marginBottom: '30px', flexDirection: 'row', float:'right' }}>
-                    <label>قوانین فوق را مطالعه کردم و با آن موافق می باشم.</label>
-                    <input className="uk-checkbox" type="checkbox" style={{ direction: 'rtl', marginLeft: '10px' }} onChange={this.onChange.bind(this)}></input>
+                    <label onClick={this.checkboxClick.bind(this)}>قوانین فوق را مطالعه کردم و با آن موافق می باشم.</label>
+                    <input className="uk-checkbox" type="checkbox" style={{ direction: 'rtl', marginLeft: '10px' }} checked={this.state.value} onChange={this.onChange.bind(this)}></input>
                 </div>
             </div>
         );
     }
 }
-
 export default RulesInput;
