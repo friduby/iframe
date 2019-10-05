@@ -12,3 +12,10 @@ button{
     bottom: -10px !important;
     border-radius: 25px !important;
 }
+
+button:disabled,
+button[disabled]{
+  border: 1px solid green !important;
+  background: white !important;
+  color: #666666 !important;
+}

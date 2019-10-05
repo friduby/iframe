@@ -41,7 +41,7 @@ class RulesInput extends BaseInput {
                     <p className="iframe-rules-text"><b>10.</b> پس از انجام و اتمام كار، حتما از سیستم خارج شوید.</p>
                 </div>
 
-                <div style={{ float: 'right', marginRight: '10px', marginTop: '10px', marginBottom: '30px', flexDirection: 'row', direction:'rtl', float:'right' }}>
+                <div style={{ float: 'right', marginRight: '10px', marginTop: '10px', marginBottom: '30px', flexDirection: 'row', float:'right' }}>
                     <label>قوانین فوق را مطالعه کردم و با آن موافق می باشم.</label>
                     <input className="uk-checkbox" type="checkbox" style={{ direction: 'rtl', marginLeft: '10px' }} onChange={this.onChange.bind(this)}></input>
                 </div>
