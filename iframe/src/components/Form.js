@@ -46,7 +46,8 @@ class Form extends React.Component {
                 index,
                 onRegister: this.onRegister.bind(this),
                 onUnRegister: this.onUnRegister.bind(this),
-                changeCallback: this.onInputsChange.bind(this)
+                changeCallback: this.onInputsChange.bind(this),
+                form: this
             });
         });
     }

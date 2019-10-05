@@ -4,7 +4,7 @@
     width:900px;
     font-family: 'Vazir' !important;
     padding-bottom: 0px !important;
-    margin: 50px auto;
+    margin: 0px auto;
     margin-bottom: 0px !important;
 }
 
@@ -31,3 +31,9 @@
     flex-flow: column;
     height: 100%;
   }
+
+@media (max-width:800px){
+  .container{
+    margin: 0px auto;
+}
+}

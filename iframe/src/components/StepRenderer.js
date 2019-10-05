@@ -11,6 +11,9 @@ import CaptchaInput from './inputs/CaptchaInput';
 
 
 class StepRenderer extends React.Component {
+    state = {
+        captcha: false
+    }
     componentDidMount() {
         if (this.props.step == 0) {
             let context = new FetchContext();
@@ -26,7 +29,8 @@ class StepRenderer extends React.Component {
         this.steps = this.props.steps.slice(0);
     }
 
-    goToNextStep(form) {
+    goToNextStep(form, refreshingCaptcha=false) {
+        this.refreshingCaptcha = refreshingCaptcha;
         let context = new FetchContext();
         let data = {};
         for (let i = 0; i < form.inputs.length; i++) {
@@ -44,15 +48,14 @@ class StepRenderer extends React.Component {
         let context = new FetchContext();
         context.fetch('pool_step', { step: this.props.step }).then((response) => {
             if (response.data.status == 'done') {
-                this.props.showNextStep();
+                this.props.showNextStep(response.data.captcha);
                 clearInterval(this.poolInterval);
             }
             else if (response.data.status == 'failed') {
-                this.props.showError(response.data.error);
+                this.props.showError(response.data.error, this.refreshingCaptcha);
                 clearInterval(this.poolInterval);
             }
         });
-
     }
 
     render() {
@@ -77,9 +80,10 @@ class StepRenderer extends React.Component {
                                 case "password":
                                     return <PassInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
                                 case "captcha":
-                                    return <CaptchaInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
+                                    if (this.props.captcha)
+                                        return <CaptchaInput image={this.props.captcha} fieldName={input.field_name} name={input.name} placeholder={input.name} onRefresh={this.goToNextStep.bind(this)} />
                                 default:
-                                    return null;
+                                    return <div></div>;
                             }
                         })}
                         {/* <p style={{ textAlign: 'right'}}>ثبت شماره کارت</p>

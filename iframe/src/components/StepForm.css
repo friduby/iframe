@@ -35,3 +35,9 @@
     padding-bottom: 7px !important;
     padding-right: 6px !important;
   }
+
+  @media (max-width:800px){
+        label {
+            direction: rtl;
+        }
+  }

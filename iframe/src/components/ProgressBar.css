@@ -74,7 +74,7 @@
 }
 
 
-@media (max-width: 960px){
+@media (max-width: 900px){
     .step-container{
         margin-right: 0px !important;
     }

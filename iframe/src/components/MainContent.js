@@ -13,7 +13,8 @@ class MainContent extends React.Component {
         loading: true,
         sms_verify: false,
         info: {amount: 0},
-        step: 0
+        step: 0,
+        captcha: false,
     }
     UNSAFE_componentWillMount() {
         let context = new FetchContext();
@@ -36,16 +37,16 @@ class MainContent extends React.Component {
         this.setState({ sms_verify: false });
     }
 
-    showNextStep() {
-        this.setState({ step: this.state.step + 1, loading: false });
+    showNextStep(captcha) {
+        this.setState({ step: this.state.step + 1, loading: false, captcha });
     }
 
     showLoading() {
         this.setState({ loading: true });
     }
 
-    showError(err) {
-        this.setState({ loading: false, failed: true, error: err });
+    showError(err, ignoreError) {
+        this.setState({ loading: false, failed: !ignoreError, error: err });
     }
 
     onTryAgain() {
@@ -58,12 +59,12 @@ class MainContent extends React.Component {
                 <InfoPanel info={this.state.info} />
                 <div className="iframe-main-content uk-width-2-3@m uk-width-1-1@s">
                     <div className="iframe-main-content iframe-full-height">
-                        <Loader loading={this.state.loading} failed={this.state.failed}
+                        <Loader loading={this.state.loading} failed={this.state.failed} renderOnFailed={this.steps}
                             error={this.state.error || "خطا در بارگذاری اطلاعات"} onTryAgain={this.onTryAgain.bind(this)}>
                             {this.state.sms_verify ? (
                                 <SMSVerification onVerify={this.navigateToFirstStep.bind(this)} />
                             ) : (
-                                    <StepRenderer steps={this.steps} step={this.state.step} showNextStep={this.showNextStep.bind(this)} showLoading={this.showLoading.bind(this)} showError={this.showError.bind(this)} />
+                                    <StepRenderer captcha={this.state.captcha} steps={this.steps} step={this.state.step} showNextStep={this.showNextStep.bind(this)} showLoading={this.showLoading.bind(this)} showError={this.showError.bind(this)} />
                                 )}
                         </Loader>
                     </div>
