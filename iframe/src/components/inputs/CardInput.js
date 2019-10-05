@@ -16,6 +16,7 @@ class CardInput extends BaseInput {
         return (
             <div className="form-group" >
                 <input onChange={this.onChange.bind(this)} type={this.props.type || "text"} className="form-control uk-input uk-width-1-1" style={{float:'right', width:'100%', marginBottom: '10px'}} name={this.props.name} maxLength="16" required />
+                <label className="form-control-placeholder" for={this.props.name} style={{fontSize:'15px', marginTop:'14px'}}>: شماره کارت</label>
             </div>
         );
     }
