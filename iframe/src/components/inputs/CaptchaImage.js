@@ -15,7 +15,7 @@ class CaptchaImage extends React.Component {
 
     render() { 
         let src = this.props.src + '?t=' +  (new Date).getTime();
-        return <img src={src} s/>;
+        return <img src={src} style={{width:'50%', paddingBottom:'40px'}} width="20" />;
     }
 }
  

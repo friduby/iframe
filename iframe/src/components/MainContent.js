@@ -13,7 +13,7 @@ class MainContent extends React.Component {
         loading: true,
         sms_verify: false,
         info: {amount: 0},
-        step: 0,
+        step: 1,
         captcha: false,
     }
     UNSAFE_componentWillMount() {
