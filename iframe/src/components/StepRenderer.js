@@ -82,8 +82,7 @@ class StepRenderer extends React.Component {
                                 case "text":  
                                     return <TextInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
                                 case "password":
-                                        return <CardInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
-                                    // return <PassInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
+                                    return <PassInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
                                 case "card_number":
                                     return <CardInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
                                 case "date":
