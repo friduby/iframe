@@ -8,7 +8,7 @@
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
     vertical-align: middle;
-    position: relative;
+    position: absolute;
     bottom:0em;
     left: 0px;
 }

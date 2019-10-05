@@ -3,12 +3,19 @@ import BaseInput from './BaseInput';
 import './Input.css'
 class CardInput extends BaseInput {
     isClean() {
-        this.setState({ error: "Error" });
+        return this.state.value.length == 16;
     }
+
+    onChange(e) {
+        this.setState({ value: e.target.value }, () => {
+            this.props.changeCallback();
+        });
+    }
+
     renderInput() {
         return (
             <div className="form-group" >
-                <input type={this.props.type || "text"} className="form-control uk-input uk-width-1-1" style={{float:'right', width:'100%'}} name={this.props.name} placeholder="_ _ _ _-_ _ _ _-_ _ _ _-_ _ _ _" pattern="(\d{4}-\d{4}-\d{4}-\d{4})" data-mask="0000-0000-0000-0000" maxLength="16" required />
+                <input onChange={this.onChange.bind(this)} type={this.props.type || "text"} className="form-control uk-input uk-width-1-1" style={{float:'right', width:'100%', marginBottom: '10px'}} name={this.props.name} maxLength="16" required />
             </div>
         );
     }

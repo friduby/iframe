@@ -8,6 +8,7 @@ import TextInput from './inputs/TextInput';
 import PassInput from './inputs/PassInput';
 import FetchContext from '../utils/FetchContext';
 import CaptchaInput from './inputs/CaptchaInput';
+import CardInput from './inputs/CardInput';
 
 
 class StepRenderer extends React.Component {
@@ -33,6 +34,7 @@ class StepRenderer extends React.Component {
         this.refreshingCaptcha = refreshingCaptcha;
         let context = new FetchContext();
         let data = {};
+        data["captcha"] = "0";
         for (let i = 0; i < form.inputs.length; i++) {
             data[form.inputs[i].props.fieldName] = form.inputs[i].state.value;
         }
@@ -79,17 +81,19 @@ class StepRenderer extends React.Component {
                                     return <TextInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
                                 case "password":
                                     return <PassInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
-                                case "captcha":
-                                    if (this.props.captcha)
-                                        return <CaptchaInput image={this.props.captcha} fieldName={input.field_name} name={input.name} placeholder={input.name} onRefresh={this.goToNextStep.bind(this)} />
+                                case "card_number":
+                                    return <CardInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
                                 case "date":
                                     return (
                                         <div>
-                                             <TextInput fieldName="year" name={input.name} placeholder="98" />
-                                             <TextInput fieldName="month" name={input.name} placeholder="04" />
+                                                <TextInput fieldName="year" name={input.name} placeholder="98" />
+                                                <TextInput fieldName="month" name={input.name} placeholder="04" />
                                         </div>                                        
                                     )
-                                        default:
+                                case "captcha":
+                                    if (this.props.captcha)
+                                        return <CaptchaInput image={this.props.captcha} fieldName={input.field_name} name={input.name} placeholder={input.name} onRefresh={this.goToNextStep.bind(this)} />
+                                default:
                                     return <div></div>;
                             }
                         })}
