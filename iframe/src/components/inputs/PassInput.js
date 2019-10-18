@@ -18,11 +18,14 @@ class PassInput extends BaseInput {
             v = false;
         this.setState({ visible: v });
     }
+    onLabelClick() {
+        document.getElementsByName(this.props.name)[0].select();
+    }
     renderInput() {
         return (
             <div className="form-group" style={{ float: 'right' }}>
                 <input onChange={this.onChange.bind(this)} type={this.state.visible ? "text" : "password"} value={this.state.value} className="form-control uk-input uk-width-1-1" style={{ float: 'right', width: '100%', display: 'block' }} name={this.props.name} />
-                <label className="form-control-placeholder" for={this.props.name}>{this.props.placeholder}</label>
+                <label onClick={this.onLabelClick.bind(this)} className="form-control-placeholder" for={this.props.name}>{this.props.placeholder}</label>
                 <div id="iframe-toggle-password" onClick={this.togglePassword.bind(this)} style={{position:'relative', top:'-45px', left:'10px', width:'17px'}}>
                     <i className="fa fa-eye"></i>
                 </div>

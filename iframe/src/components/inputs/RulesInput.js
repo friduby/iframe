@@ -50,7 +50,7 @@ class RulesInput extends BaseInput {
                 </div>
 
                 <div style={{ float: 'right', marginRight: '10px', marginTop: '10px', marginBottom: '30px', flexDirection: 'row', float:'right' }}>
-                    <label onClick={this.checkboxClick.bind(this)}>قوانین فوق را مطالعه کردم و با آن موافق می باشم.</label>
+                    <label onClick={this.checkboxClick.bind(this)}>قوانین فوق را مطالعه کردم و با آن موافق می باشم</label>
                     <input className="uk-checkbox" type="checkbox" style={{ direction: 'rtl', marginLeft: '10px' }} checked={this.state.value} onChange={this.onChange.bind(this)}></input>
                 </div>
             </div>

@@ -1,11 +1,32 @@
 import React from 'react';
 import './InfoPanel.css';
-import gppLogo from '../assets/logo.png'
-import bankLogo from '../assets/shahrpng.png'
 
 
 class InfoPanel extends React.Component {
+    state = {
+        time: 0
+    }
+    componentDidUpdate() {
+        if (this.state.time > 0 || !this.props.info.time)
+            return;
+        this.setState({ time: this.props.info.time }, () => {
+            if (this.timerInterval)
+                clearInterval(this.timerInterval);
+            this.timerInterval = setInterval(() => {
+                this.setState({ time: this.state.time-1 });
+            }, 1000);
+        });
+    }
+
+    twoDigit(t) {
+        if (t < 10)
+            return "0" + t;
+        return t;
+    }
+
+
     render() {
+        let bankLogo = `/bank_logos/${this.props.info.bank}-lg.png`;
         return (
             <div className="iframe-info-panel uk-width-1-3@m uk-width-1-1@s uk-grid" style={{backgroundColor:'#ddd', paddingTop:'30px', marginBottom:'0px !important'}}>
                 <div className="info-bank-logo uk-width-1-1@m uk-width-1-2@s">
@@ -17,15 +38,15 @@ class InfoPanel extends React.Component {
                 <div className="info-time-remaining">
                     <div className="time-remaining">
                         <div className="uk-width-1-1 uk-grid">
-                            <p className="uk-width-1-2" style={{fontSize:'21px', fontStyle:'bold', margin:'0px', textAlign:'left'}}>7:00</p>
+                            <p className="uk-width-1-2" style={{fontSize:'21px', fontStyle:'bold', margin:'0px', textAlign:'left'}}>{this.twoDigit(parseInt(this.state.time/60))}:{this.twoDigit(this.state.time % 60)}</p>
                             <p className="uk-width-1-2" style={{fontSize:'14px', paddingTop:'5px', textAlign:'right'}}>:زمان باقیمانده</p>
                         </div>
                         <div className="uk-width-1-1 uk-grid">
-                            <p className="uk-width-1-2" style={{fontSize:'18px', fontStyle:'bold', margin:'0px', textAlign:'left'}}>John Snow</p>
+                            <p className="uk-width-1-2" style={{fontSize:'18px', fontStyle:'bold', margin:'0px', textAlign:'left'}}>{this.props.info.username}</p>
                             <p className="uk-width-1-2" style={{fontSize:'14px', paddingTop:'5px', textAlign:'right'}}>:نام کاربری</p>
                         </div>
                         <div className="uk-width-1-1 uk-grid">
-                            <p className="uk-width-1-2" style={{fontSize:'18px', fontStyle:'bold', margin:'0px', textAlign:'left'}}>222414</p>
+                            <p className="uk-width-1-2" style={{fontSize:'18px', fontStyle:'bold', margin:'0px', textAlign:'left'}}>{this.props.info.ref_code}</p>
                             <p className="uk-width-1-2" style={{fontSize:'14px', paddingTop:'5px', textAlign:'right'}}>:شناسه پرداخت</p>
                         </div>
                     </div>

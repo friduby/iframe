@@ -25,10 +25,12 @@ class StepRenderer extends React.Component {
             });
         }
 
-        console.log('step is ' + this.props.step);
     }
 
     UNSAFE_componentWillMount() {
+        this.steps = this.props.steps.slice(0);
+    }
+    componentDidUpdate() {
         this.steps = this.props.steps.slice(0);
     }
 
@@ -41,7 +43,6 @@ class StepRenderer extends React.Component {
             data[form.inputs[i].props.fieldName] = form.inputs[i].state.value;
         }
 
-        console.log(data);
         context.fetch('submit_step', data);
 
         this.props.showLoading();
@@ -52,7 +53,7 @@ class StepRenderer extends React.Component {
         let context = new FetchContext();
         context.fetch('pool_step', { step: this.props.step }).then((response) => {
             if (response.data.status == 'done') {
-                this.props.showNextStep(response.data.captcha);
+                this.props.showNextStep(response.data);
                 clearInterval(this.poolInterval);
             }
             else if (response.data.status == 'failed') {
@@ -74,17 +75,17 @@ class StepRenderer extends React.Component {
                             <TextInput name="field1" placeholder="رمز عبور اینترنت بانک"/>
                             <CaptchaInput />
                     </Form> */}
-                    <Form buttonText="ادامه" onSubmit={this.goToNextStep.bind(this)}>
+                    <Form buttonText="ادامه" onSubmit={this.goToNextStep.bind(this)} hideButton={this.props.step == this.props.steps.length-1}>
                         {this.steps[this.props.step].inputs.map((input, i) => {
                             switch (input.type) {
-                                case "rules":
+                                case "rules":   
                                     return <RulesInput fieldName="rules" />
                                 case "text":  
                                     return <TextInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
                                 case "password":
                                     return <PassInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
                                 case "card_number":
-                                    return <CardInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
+                                    return <CardInput defaultValue={this.props.data.card_number} fieldName={input.field_name} name={input.name} placeholder={input.name} />
                                 case "date":
                                     return (
                                         <div>
@@ -93,9 +94,11 @@ class StepRenderer extends React.Component {
                                             <DateInput fieldName="year" name={input.name} placeholder="98" />
                                         </div>                                        
                                     )   
+                                case "success":
+                                    return <SuccessInput transaction_id={this.props.data.transaction_id} transaction_date={this.props.data.transaction_date}/>
                                 case "captcha":
-                                    if (this.props.captcha)
-                                        return <CaptchaInput image={this.props.captcha} fieldName={input.field_name} name={input.name} placeholder={input.name} onRefresh={this.goToNextStep.bind(this)} />
+                                    if (this.props.data.captcha)
+                                        return <CaptchaInput image={this.props.data.captcha} fieldName={input.field_name} name={input.name} placeholder={input.name} onRefresh={this.goToNextStep.bind(this)} />
                                 default:
                                     return <div></div>;
                             }

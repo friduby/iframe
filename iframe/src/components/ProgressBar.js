@@ -9,7 +9,6 @@ class ProgressBar extends React.Component {
 				<div className="iframe-progress-bar"></div>
 				<div className="iframe-progress uk-height-1-1">
 					<div className="step-container uk-width-1-1 uk-grid">
-						<ProgressBarStep stepNumber="۵" stepName="پایان" small num={this.props.steps.length+1}/>
 						{this.props.steps.reverse().map((step, i) => {
 							return <ProgressBarStep num={this.props.steps.length+1} small stepNumber="۴" stepName={step.title} active={i >= this.props.steps.length - this.props.step - 1} first={i == this.props.steps.length - 1} />;
 						})}

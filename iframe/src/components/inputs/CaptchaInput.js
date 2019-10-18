@@ -1,9 +1,7 @@
 import React from 'react';
 import BaseInput from './BaseInput';
 import './Input.css'
-import TextInput from './TextInput'
 import CaptchaImage from './CaptchaImage';
-import image from '../../assets/logo.png'
 class CaptchaInput extends BaseInput {
     isClean() {
         return this.state.value.length > 0;
@@ -16,7 +14,6 @@ class CaptchaInput extends BaseInput {
     }
 
     refreshCaptcha() {
-        console.log('REFRESHING');
         this.props.onRefresh(this.props.form, true);
     }
     renderInput() {
