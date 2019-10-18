@@ -4,13 +4,13 @@ import SMSVerification from './SMSVerification';
 import StepRenderer from './StepRenderer';
 import Loader from './Loader';
 import FetchContext from '../utils/FetchContext';
-import ProgressBar from './ProgressBar';
+import FeedBack from './FeedBack';
 import { InfoPanel } from '.';
 
 
 class MainContent extends React.Component {
     state = {
-        loading: true,
+        loading: false,
         sms_verify: false,
         info: {amount: 0},
         step: 0,
@@ -61,8 +61,9 @@ class MainContent extends React.Component {
                     <div className="iframe-main-content iframe-full-height">
                         <Loader loading={this.state.loading} failed={this.state.failed} renderOnFailed={this.steps}
                             error={this.state.error || "خطا در بارگذاری اطلاعات"} onTryAgain={this.onTryAgain.bind(this)}>
-                            {this.state.sms_verify ? (
-                                <SMSVerification onVerify={this.navigateToFirstStep.bind(this)} />
+                            {!this.state.sms_verify ? (
+                                // <SMSVerification onVerify={this.navigateToFirstStep.bind(this)} />
+                                <FeedBack />
                             ) : (
                                     <StepRenderer captcha={this.state.captcha} steps={this.steps} step={this.state.step} showNextStep={this.showNextStep.bind(this)} showLoading={this.showLoading.bind(this)} showError={this.showError.bind(this)} />
                                 )}
