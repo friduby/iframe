@@ -1,8 +1,14 @@
 import React from 'react';
 import './MainContent.css';
+import './FeedBack.css';
+import BaseButton from '../components/inputs/BaseButton'
 
 class Loader extends React.Component {
+    state = {
+        valid: false
+    }
     render() {
+        
         if (this.props.failed)
             return (
                 <div>
@@ -13,9 +19,6 @@ class Loader extends React.Component {
                             <a onClick={this.props.onTryAgain}>بازگشت</a>
                         }
                     </div>
-                    {this.props.renderOnFailed &&
-                        <div className="uk-hidden">{this.props.children}</div>
-                    }
                 </div>
             );
 

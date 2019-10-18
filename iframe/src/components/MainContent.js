@@ -4,13 +4,13 @@ import SMSVerification from './SMSVerification';
 import StepRenderer from './StepRenderer';
 import Loader from './Loader';
 import FetchContext from '../utils/FetchContext';
-import ProgressBar from './ProgressBar';
+import FeedBack from './FeedBack';
 import { InfoPanel } from '.';
 
 
 class MainContent extends React.Component {
     state = {
-        loading: true,
+        loading: false,
         sms_verify: false,
         info: {amount: 0, ref_code: "",  username: "", time: 0, bank: ''},
         step: 0,
