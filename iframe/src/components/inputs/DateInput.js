@@ -13,7 +13,7 @@ class DateInput extends BaseInput {
     renderInput() {
         return (
             <div className="form-group" style={{float:'right', width:'100px', textAlign:'center', marginLeft:'10px'}}>
-                <input id="date-input" onValidate="this.setCustomValidity('')" onChange={this.onChange.bind(this)} value={this.state.value} onkeyup="this.setAttribute('value', this.value);" type={this.props.type || "text"} className="form-control uk-input uk-width-1-1" style={{float:'right'}} name={this.props.name} />
+                <input maxLength="2" id="date-input" onValidate="this.setCustomValidity('')" onChange={this.onChange.bind(this)} value={this.state.value} onkeyup="this.setAttribute('value', this.value);" type={this.props.type || "text"} className="form-control uk-input uk-width-1-1" style={{float:'right'}} name={this.props.name} />
                 <label className="form-control-placeholder" for={this.props.name}>{this.props.placeholder}</label>
             </div>
         );

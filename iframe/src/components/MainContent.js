@@ -12,9 +12,10 @@ class MainContent extends React.Component {
     state = {
         loading: false,
         sms_verify: false,
-        info: {amount: 0},
+        info: {amount: 0, ref_code: "",  username: "", time: 0, bank: ''},
         step: 0,
-        captcha: false,
+        data: {},
+        fatalError: ""
     }
     UNSAFE_componentWillMount() {
         let context = new FetchContext();
@@ -23,9 +24,11 @@ class MainContent extends React.Component {
                 this.steps = response.data.steps;
                 this.setState({
                     sms_verify: response.data.sms_verify,
-                    info: {amount: 2000},
+                    fatalError: response.data.error,
+                    info: {amount: response.data.amount, ref_code: response.data.ref_code,
+                         username: response.data.username, time:response.data.time, bank:response.data.bank},
                     loading: false
-                }, () => console.log(this.state.steps));
+                });
             }).catch(reason => {
                 this.setState({
                     failed: true
@@ -37,8 +40,8 @@ class MainContent extends React.Component {
         this.setState({ sms_verify: false });
     }
 
-    showNextStep(captcha) {
-        this.setState({ step: this.state.step + 1, loading: false, captcha });
+    showNextStep(data) {
+        this.setState({ step: this.state.step + 1, loading: false, data });
     }
 
     showLoading() {
@@ -59,13 +62,12 @@ class MainContent extends React.Component {
                 <InfoPanel info={this.state.info} />
                 <div className="iframe-main-content uk-width-2-3@m uk-width-1-1@s">
                     <div className="iframe-main-content iframe-full-height">
-                        <Loader loading={this.state.loading} failed={this.state.failed} renderOnFailed={this.steps}
-                            error={this.state.error || "خطا در بارگذاری اطلاعات"} onTryAgain={this.onTryAgain.bind(this)}>
-                            {!this.state.sms_verify ? (
-                                // <SMSVerification onVerify={this.navigateToFirstStep.bind(this)} />
-                                <FeedBack />
+                        <Loader loading={this.state.loading} failed={this.state.failed || this.state.fatalError} renderOnFailed={this.steps}
+                            error={this.state.error || this.state.fatalError || "خطا در بارگذاری اطلاعات"} onTryAgain={!this.state.fatalError && this.onTryAgain.bind(this)}>
+                            {this.state.sms_verify ? (
+                                <SMSVerification onVerify={this.navigateToFirstStep.bind(this)} />
                             ) : (
-                                    <StepRenderer captcha={this.state.captcha} steps={this.steps} step={this.state.step} showNextStep={this.showNextStep.bind(this)} showLoading={this.showLoading.bind(this)} showError={this.showError.bind(this)} />
+                                    <StepRenderer data={this.state.data} steps={this.steps} step={this.state.step} showNextStep={this.showNextStep.bind(this)} showLoading={this.showLoading.bind(this)} showError={this.showError.bind(this)} />
                                 )}
                         </Loader>
                     </div>

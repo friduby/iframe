@@ -58,13 +58,18 @@ class Form extends React.Component {
 
     render() {
         const children = this.handleChilds(this.props.children);
+        let submitButton = (<div className="uk-width-1-1 iframe-full-height" style={{ position: 'relative', top: '5px' }}>
+            <BaseButton type="submit" value={this.props.buttonText} disabled={!this.state.valid} />
+        </div>);
+        if (this.props.hideButton)
+            submitButton = null;
         return (
-            <form onSubmit={this.validateAndSubmit.bind(this)} className="iframe-full-height" style={{paddingBottom:'10px'}}>
+            <form onSubmit={this.validateAndSubmit.bind(this)} className="iframe-full-height" style={{ paddingBottom: '10px' }}>
                 {children}
-                <div className="uk-width-1-1 iframe-full-height" style={{position:'relative', top:'5px'}}>
-                    <BaseButton type="submit" value={this.props.buttonText} disabled={!this.state.valid} />
-                </div>
-                <div style={{clear:'both'}}></div>
+                {submitButton}
+                <br />
+                <br />
+                <div style={{ clear: 'both' }}></div>
             </form>
         );
     }

@@ -14,7 +14,6 @@ class SMSVerification extends React.Component {
     };
     onSubmit(form) {
         let context = new FetchContext();
-        console.log(form.inputs.length);
         let phone = form.inputs[0].state.value;
         let code = form.inputs[1].state.value;
 

@@ -10,11 +10,14 @@ class TextInput extends BaseInput {
             this.props.changeCallback();
         });
     }
+    onLabelClick() {
+        document.getElementsByName(this.props.name)[0].select();
+    }
     renderInput() {
         return (
             <div className="form-group">
                 <input onValidate="this.setCustomValidity('')" onChange={this.onChange.bind(this)} value={this.state.value} onkeyup="this.setAttribute('value', this.value);" type={this.props.type || "text"} className="form-control uk-input uk-width-1-1" style={{float:'right', width:'100%'}} name={this.props.name} />
-                <label className="form-control-placeholder" for={this.props.name}>{this.props.placeholder}</label>
+                <label onClick={this.onLabelClick.bind(this)} className="form-control-placeholder" for={this.props.name}>{this.props.placeholder}</label>
             </div>
         );
     }
