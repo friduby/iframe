@@ -16,7 +16,7 @@
     background-color: #ccc;
     color: #666;
     border: 2px dashed #bbb;
-    padding: 40px 60px 0px 60px  !important;
+    padding: 10px 60px 10px 60px  !important;
     border-radius: 10px;
     width: 85%;
 
@@ -37,8 +37,10 @@
     margin: 0px auto;
     padding-left: 0px !important;
 }
-.time-remaining p{
+.time-remaining p, .time-remaining a{
     padding-left: 0px !important;
+    font-size: 70% !important;
+    width: 100%;
 }
 .info-help{
     margin: 0px auto;
@@ -55,23 +57,22 @@
 
 @media (max-width: 640px){
     .info-bank-logo{
-        width: 50%;
-        margin: 10px 0px 0px 0px !important;
-        padding: 10px 10px 10px 10px !important;
+        width: 30%;
+        margin: 0px 0px 0px 10% !important;
+        padding: 0px 0px 0px 10px !important;
     }
     .info-deposit{
         border: 0px;
         background-color: transparent;
         width: 50% !important;
-        margin: 15px 0px 0px 0px !important;
-        padding: 20px 30px 0px 30px !important;
-    }
-    .info-deposit span{
-        font-size: 19px !important;
+        margin: 10px 0px 0px 0px !important;
+        padding: 0px 60px 0px 60px !important;
     }
     .info-deposit p{
-       margin-top: -4px;
-
+        margin-top: 5px;
+    }
+    .info-deposit p, .info-deposit span{
+        font-size: 80% !important;
     }
     .info-time-remaining{
         margin: 0px auto !important;
@@ -82,6 +83,7 @@
     }
     .info-help {
         direction: rtl;
+        padding: 0px !important;
     }
     .info-help p {
         padding-top: 5px;

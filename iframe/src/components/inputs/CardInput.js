@@ -3,7 +3,7 @@ import BaseInput from './BaseInput';
 import './Input.css'
 class CardInput extends BaseInput {
     isClean() {
-        return this.state.value.length == 16;
+        return this.state.value && this.state.value.length == 16;
     }
 
     componentDidMount() {

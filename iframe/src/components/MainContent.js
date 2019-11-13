@@ -10,12 +10,12 @@ import { InfoPanel } from '.';
 
 class MainContent extends React.Component {
     state = {
-        loading: false,
+        loading: true,
         sms_verify: false,
         info: {amount: 0, ref_code: "",  username: "", time: 0, bank: ''},
         step: 0,
         data: {},
-        fatalError: ""
+        fatalError: null
     }
     UNSAFE_componentWillMount() {
         let context = new FetchContext();
@@ -48,8 +48,8 @@ class MainContent extends React.Component {
         this.setState({ loading: true });
     }
 
-    showError(err, ignoreError) {
-        this.setState({ loading: false, failed: !ignoreError, error: err });
+    showError(err, ignoreError, fatalError=null) {
+        this.setState({ loading: false, failed: !ignoreError, error: err, fatalError: fatalError });
     }
 
     onTryAgain() {

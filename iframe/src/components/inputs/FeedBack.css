@@ -1,0 +1,89 @@
+﻿.iframe-feedback{
+    margin-left: 0px !important;
+    height: 100%;
+    font-size: 15px;
+}
+
+.iframe-feedback-content{
+    background-color: #eee;
+    width: 77%;
+    border: 1px solid #ddd;
+    margin: 20px auto;
+    padding-left: 0px !important;
+}
+
+@media(max-width:500px){
+    .iframe-feedback-content{
+        width: 100%;
+    }
+}
+
+.iframe-feedback-success{
+    background: #00bc89; /* Old browsers */
+    background: -moz-linear-gradient(left,  #00bc89 0%, #80b559 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left,  #00bc89 0%,#80b559 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right,  #00bc89 0%,#80b559 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00bc89', endColorstr='#80b559',GradientType=1 ); /* IE6-9 */
+    color: white;
+    direction: rtl;
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+}
+.iframe-feedback-success > div{
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+}
+.iframe-feedback-success-text{
+    padding-right: 10px !important;
+}
+
+.iframe-feedback-detail{
+    font-size: 15px;
+    padding-top: 10px;
+    border-bottom: 1px solid #ccc;
+    direction: rtl;
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+}
+.iframe-feedback-detail > div{
+    margin-left: 0px !important;
+    padding-left: 0px !important;
+}
+
+@media(max-width:500px){
+    .iframe-feedback-detail{
+        font-size: 12px;
+        padding-top: 5px;
+        height: 30px !important;
+    }
+}
+
+.iframe-feedback-rate{
+    padding-left: 0px !important;
+    font-size: 14px;
+    direction: rtl;
+}
+
+@media(max-width:800px){
+    .iframe-feedback-content{
+        height: 500px !important;
+        margin: 0px auto !important;
+    }
+    .iframe-feedback-rate p{
+        margin-bottom: 0px !important;
+    }
+    textarea{
+        margin: 0xp !important;
+        padding: 0xp !important;
+    }
+    .iframe-feedback-rate-star, .iframe-feedback-rate-star + div {
+        text-align: center !important;
+        width: 100% !important;
+        font-size: 16px !important;
+        margin: 0px auto !important;
+    }
+}
+
+textarea {
+    resize: none;
+}
