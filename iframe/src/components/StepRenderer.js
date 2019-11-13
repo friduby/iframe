@@ -11,6 +11,7 @@ import CaptchaInput from './inputs/CaptchaInput';
 import CardInput from './inputs/CardInput';
 import DateInput from './inputs/DateInput';
 import SuccessInput from './inputs/SuccessInput';
+import FeedBack from './inputs/FeedBack';
 
 
 class StepRenderer extends React.Component {
@@ -28,13 +29,15 @@ class StepRenderer extends React.Component {
     }
 
     UNSAFE_componentWillMount() {
-        this.steps = this.props.steps.slice(0);
+        if (this.props.steps)
+            this.steps = this.props.steps.slice(0);
     }
     componentDidUpdate() {
-        this.steps = this.props.steps.slice(0);
+        if (this.props.steps)
+            this.steps = this.props.steps.slice(0);
     }
 
-    goToNextStep(form, refreshingCaptcha=false) {
+    goToNextStep(form, refreshingCaptcha = false) {
         this.refreshingCaptcha = refreshingCaptcha;
         let context = new FetchContext();
         let data = {};
@@ -57,13 +60,15 @@ class StepRenderer extends React.Component {
                 clearInterval(this.poolInterval);
             }
             else if (response.data.status == 'failed') {
-                this.props.showError(response.data.error, this.refreshingCaptcha);
+                this.props.showError(response.data.error, this.refreshingCaptcha, response.data.fatalerror);
                 clearInterval(this.poolInterval);
             }
         });
     }
 
     render() {
+        if (!this.props.steps)
+            return null;
         return (
             <div className="iframe-full-height">
                 <ProgressBar steps={this.steps} step={this.props.step} />
@@ -75,12 +80,13 @@ class StepRenderer extends React.Component {
                             <TextInput name="field1" placeholder="رمز عبور اینترنت بانک"/>
                             <CaptchaInput />
                     </Form> */}
-                    <Form buttonText="ادامه" onSubmit={this.goToNextStep.bind(this)} hideButton={this.props.step == this.props.steps.length-1}>
+                    <Form buttonText="ادامه" onSubmit={this.goToNextStep.bind(this)} hideButton={this.props.step == this.props.steps.length - 1}>
                         {this.steps[this.props.step].inputs.map((input, i) => {
+                            return <FeedBack />
                             switch (input.type) {
-                                case "rules":   
+                                case "rules":
                                     return <RulesInput fieldName="rules" />
-                                case "text":  
+                                case "text":
                                     return <TextInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
                                 case "password":
                                     return <PassInput fieldName={input.field_name} name={input.name} placeholder={input.name} />
@@ -89,13 +95,13 @@ class StepRenderer extends React.Component {
                                 case "date":
                                     return (
                                         <div>
-                                            <p style={{float:'right', direction:'rtl'}} className="uk-width-1-1">تاریخ انقضای کارت</p>
+                                            <p style={{ float: 'right', direction: 'rtl' }} className="uk-width-1-1">تاریخ انقضای کارت</p>
                                             <DateInput fieldName="month" name={input.name} placeholder="04" />
                                             <DateInput fieldName="year" name={input.name} placeholder="98" />
-                                        </div>                                        
-                                    )   
+                                        </div>
+                                    )
                                 case "success":
-                                    return <SuccessInput transaction_id={this.props.data.transaction_id} transaction_date={this.props.data.transaction_date}/>
+                                    return <SuccessInput transaction_id={this.props.data.transaction_id} transaction_date={this.props.data.transaction_date} />
                                 case "captcha":
                                     if (this.props.data.captcha)
                                         return <CaptchaInput image={this.props.data.captcha} fieldName={input.field_name} name={input.name} placeholder={input.name} onRefresh={this.goToNextStep.bind(this)} />

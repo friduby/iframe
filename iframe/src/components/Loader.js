@@ -19,6 +19,7 @@ class Loader extends React.Component {
                             <a onClick={this.props.onTryAgain}>بازگشت</a>
                         }
                     </div>
+                    <div className="uk-hidden">{this.props.children}</div>
                 </div>
             );
 
