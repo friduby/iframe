@@ -1,6 +1,5 @@
 import React from 'react';
 import './MainContent.css';
-import './FeedBack.css';
 import BaseButton from '../components/inputs/BaseButton'
 
 class Loader extends React.Component {
