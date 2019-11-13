@@ -9,7 +9,7 @@ class FeedBack extends React.Component {
     render() {
         
         return (
-            <div className="iframe-feedback uk-grid" style={{border:'1px solid #ddd'}}>
+            <div className="iframe-feedback uk-grid" style={{marginBottom:'10px'}}>
                 <div className="iframe-feedback-content uk-grid">
                     <div className="iframe-feedback-success uk-width-1-1 uk-grid" style={{height:'50px',paddingTop:'13px',paddingRight:'10px'}}>
                         <div className="iframe-feedback-success-check uk-grid-1-5">
@@ -21,17 +21,17 @@ class FeedBack extends React.Component {
                             تراکنش با موفقیت انجام شد.
                         </div>
                     </div>
-                    <div className="iframe-feedback-detail uk-width-1-1 uk-grid" style={{height:'40px' ,paddingRight:'10px', marginTop:'0px'}}>
-                        <div className="iframe-feedback-refcode uk-width-2-5">
+                    <div className="iframe-feedback-detail uk-width-1-1 uk-grid" style={{paddingRight:'10px', marginTop:'0px', paddingBottom:'10px'}}>
+                        <div className="iframe-feedback-refcode uk-width-2-5@m uk-width-1-1@s">
                             کد پیگیری :‌۲۰۲۰۲۹۷۵۲۵ 
                         </div>
-                        <div className="iframe-feedback-detail-datetime uk-width-3-5">
+                        <div className="iframe-feedback-detail-datetime uk-width-3-5@m uk-width-1-1@s">
                             تاریخ: 
                             ۲۰/۰۲/۹۸
                             در ساعت:
                             ۲۰:۳۰:۴۵
                         </div>
-                    </div>
+                        </div>
                     <div className="iframe-feedback-rate uk-height-1-1" style={{paddingTop:'10px'}}>
                         <p style={{paddingRight:'10px'}}>
                             برای خدمات دهی هر چه بهتر گو پی پرو لطفا با امتیاز دهی هر یک از موارد زیر میزان رضایت خود را اعلام نمایید:
@@ -68,9 +68,7 @@ class FeedBack extends React.Component {
                             نظر خود را در مورد سیستم گو پی پرو ثبت نمایید.
                         </textarea>
 
-                        <div style={{width:'90%', margin:'0px auto', position:'relative', top:'15px'}}>
-                            <BaseButton type="submit" value="ثبت نظر" />
-                        </div>
+                        
                     </div>
                 </div>
             </div>

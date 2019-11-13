@@ -2,14 +2,16 @@
     margin-left: 0px !important;
     height: 100%;
     font-size: 15px;
+    border-radius: 10px;
 }
 
 .iframe-feedback-content{
+    border-radius: 10px;
     background-color: #eee;
-    width: 77%;
+    width: 85%;
     border: 1px solid #ddd;
     margin: 20px auto;
-    padding-left: 0px !important;
+    padding: 10px !important;
 }
 
 @media(max-width:500px){
@@ -17,7 +19,12 @@
         width: 100%;
     }
 }
-
+.uk-grid{
+    padding: 0px;
+}
+textarea::placeholder {
+    opacity: 0;
+}
 .iframe-feedback-success{
     background: #00bc89; /* Old browsers */
     background: -moz-linear-gradient(left,  #00bc89 0%, #80b559 100%); /* FF3.6-15 */
@@ -40,7 +47,6 @@
 .iframe-feedback-detail{
     font-size: 15px;
     padding-top: 10px;
-    border-bottom: 1px solid #ccc;
     direction: rtl;
     margin-left: 0px !important;
     padding-left: 0px !important;
